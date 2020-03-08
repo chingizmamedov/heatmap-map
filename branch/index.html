@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="stylesheet" href="lib/normalize.css">
+    <link rel="stylesheet" href="lib/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>Branches</title>
+</head>
+
+<body>
+    <div class="flash">
+        <span>Please, entry accurate branch name</span>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <div class="logo">
+            <img class="logo-1" src="assets/images/KapitalBank.svg" alt="">
+            <img class="logo-2" src="assets/images/kap-gr.png" alt="">
+        </div>
+        <div class="navigatio">
+            <div class="table-list-header">
+                <ul class="sidebar-controller d-flex">
+                    <li id="tab-total" class="table-controller-item table-controller-item-active">
+                        <div class="item-wrap">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="icon/action/subject_24px">
+                                    <path id="icon/action/subject_24px_2" fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M4 7V5H20V7H4ZM4 9H20V11H4V9ZM4 17H14V19H4V17ZM4 15H20V13H4V15Z" fill="white"
+                                        fill-opacity="1" />
+                                </g>
+                            </svg>
+                            <!-- <img src="assets/icon/action/subject_24px_outlined.svg" alt=""> -->
+                            <span>Total</span>
+                        </div>
+                    </li>
+                    <li id="tab-Xidmet" class="table-controller-item">
+                        <div class="item-wrap">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="icon/action/contact_support_24px">
+                                    <path id="icon/action/contact_support_24px_2" fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M11.5 19.695V23.295L12.93 22.605C18.06 20.135 21.5 15.155 21.5 10.205C21.5 4.965 17.24 0.705002 12 0.705002C6.76 0.705002 2.5 4.965 2.5 10.205C2.5 15.275 6.49 19.435 11.5 19.695ZM4.5 10.205C4.5 6.065 7.86 2.705 12 2.705C16.14 2.705 19.5 6.065 19.5 10.205C19.5 13.925 17.14 17.705 13.5 20.005V17.705H12C7.86 17.705 4.5 14.345 4.5 10.205ZM13 14.205V16.205H11V14.205H13ZM12.7704 9.52668C11.9421 10.1616 11 10.8837 11 12.705H13C13 11.6096 13.711 10.9883 14.4408 10.3505C15.21 9.67832 16 8.98792 16 7.705C16 5.495 14.21 3.705 12 3.705C9.79 3.705 8 5.495 8 7.705H10C10 6.605 10.9 5.705 12 5.705C13.1 5.705 14 6.605 14 7.705C14 8.58422 13.4202 9.02861 12.7704 9.52668Z"
+                                        fill="white" fill-opacity="1" />
+                                </g>
+                            </svg>
+
+                            <!-- <img src="assets/icon/action/contact_support_24px_outlined.svg" alt=""> -->
+                            <span>Xidmət</span>
+                        </div>
+                    </li>
+                    <li id="tab-Satish" class="table-controller-item">
+                        <div class="item-wrap">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="icon/content/next_week_24px">
+                                    <path id="icon/content/next_week_24px_2" fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16 6.5H20C21.1 6.5 22 7.4 22 8.5V19.5C22 20.6 21.1 21.5 20 21.5H4C2.9 21.5 2 20.6 2 19.5V8.5C2 7.4 2.9 6.5 4 6.5H8V4.5C8 3.4 8.9 2.5 10 2.5H14C14.55 2.5 15.05 2.72 15.41 3.09C15.78 3.45 16 3.95 16 4.5V6.5ZM11 10L15 14L11 18L10 17L13 14L10 11L11 10ZM10 4.5H14V6.5H10V4.5ZM4 19.5H20V8.5H4V19.5Z"
+                                        fill="white" fill-opacity="1" />
+                                </g>
+                            </svg>
+
+                            <!-- <img src="assets/icon/content/next_week_24px_outlined.svg" alt=""> -->
+                            <span>Satış</span>
+                        </div>
+                    </li>
+                    <li id="tab-Kassa" class="table-controller-item">
+                        <div class="item-wrap">
+                            <svg width="24" height="29" viewBox="0 0 24 29" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="icon/editor/attach_money_24px">
+                                    <path id="icon/editor/attach_money_24px_2"
+                                        d="M12.39 10.9C10.12 10.31 9.39 9.7 9.39 8.75C9.39 7.66 10.4 6.9 12.09 6.9C13.87 6.9 14.53 7.75 14.59 9H16.8C16.73 7.28 15.68 5.7 13.59 5.19V3H10.59V5.16C8.65 5.58 7.09 6.84 7.09 8.77C7.09 11.08 9 12.23 11.79 12.9C14.29 13.5 14.79 14.38 14.79 15.31C14.79 16 14.3 17.1 12.09 17.1C10.03 17.1 9.22 16.18 9.11 15H6.91C7.03 17.19 8.67 18.42 10.59 18.83V21H13.59V18.85C15.54 18.48 17.09 17.35 17.09 15.3C17.09 12.46 14.66 11.49 12.39 10.9Z"
+                                        fill="white" fill-opacity="1" />
+                                </g>
+                            </svg>
+                            <!-- <img src="assets/icon/editor/attach_money_24px_outlined.svg" alt=""> -->
+                            <span>Kassa</span>
+                        </div>
+                    </li>
+                    <li id="tab-Huquqi" class="table-controller-item">
+                        <div class="item-wrap">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="icon/action/card_travel_24px">
+                                    <path id="icon/action/card_travel_24px_2" fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M17 6.5H20C21.11 6.5 22 7.39 22 8.5V19.5C22 20.61 21.11 21.5 20 21.5H4C2.89 21.5 2 20.61 2 19.5V8.5C2 7.39 2.89 6.5 4 6.5H7V4.5C7 3.39 7.89 2.5 9 2.5H15C16.11 2.5 17 3.39 17 4.5V6.5ZM15 4.5H9V6.5H15V4.5ZM20 19.5H4V17.5H20V19.5ZM4 14.5H20V8.5H17V10.5H15V8.5H9V10.5H7V8.5H4V14.5Z"
+                                        fill="white" fill-opacity="1" />
+                                </g>
+                            </svg>
+                            <!-- <img src="assets/icon/action/card_travel_24px_outlined.svg" alt=""> -->
+                            <span>Hüquqi şəxslər</span>
+                        </div>
+                    </li>
+                    <li id="tab-shexsler" class="table-controller-item">
+                        <div class="item-wrap">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="icon/action/credit_card_24px">
+                                    <path id="icon/action/credit_card_24px_2" fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M20 4H4C2.89 4 2.01 4.89 2.01 6L2 18C2 19.11 2.89 20 4 20H20C21.11 20 22 19.11 22 18V6C22 4.89 21.11 4 20 4ZM20 18H4V12H20V18ZM4 8H20V6H4V8Z"
+                                        fill="white" fill-opacity="1" />
+                                </g>
+                            </svg>
+
+                            <!-- <img src="assets/icon/action/credit_card_24px_outlined.svg" alt=""> -->
+                            <span>Kassa - Hüquqi şəxslər</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="themes-control" class="theme">
+            <div class="theme-content d-flex flex-column">
+                <h3 class="theme-name mb-3">Themes</h3>
+                <div class="d-flex justify-content-around">
+                    <div id="theme-white" class="theme-item"></div>
+                    <div id="theme-dark" class="theme-item theme-black"></div>
+                    <div id="theme-colored" class="theme-item theme-colored"></div>
+                    <div id="theme-prime" class="theme-item theme-prime"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="content-wrap">
+        <div class="header d-flex align-items-center justify-content-between">
+            <div>
+                <a style="color: var(--main-table-text-color); text-decoration: none;" href="/heatmap/">MAP</a>
+            </div> 
+            <div class="admin d-flex align-items-center justify-content-between">
+                
+                <div class="d-flex align-items-center">
+                    <div class="name">Administrator</div>
+                    <!-- <img src="assets/icon/action/home_24px_outlined.svg" alt=""> -->
+                    <p><a style="color: var(--main-table-text-color); margin-top: 3px;margin-left: 10px;" href="/logout.jsp" onclick="return qmatic.common.logout();">Logout</a>
+                    </p>
+
+                </div>
+                
+            </div>
+        </div>
+        <div class="d-flex flex-column table-wrap">
+            <div class="search-preloader">
+                <?xml version="1.0" encoding="utf-8"?>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    style="margin: auto; background: rgb(241, 242, 243); display: block; shape-rendering: auto;"
+                    width="200px" height="50px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                    <circle cx="84" cy="50" r="0.171405" fill="#220b09">
+                        <animate attributeName="r" repeatCount="indefinite" dur="0.25s" calcMode="spline" keyTimes="0;1"
+                            values="10;0" keySplines="0 0.5 0.5 1" begin="0s"></animate>
+                        <animate attributeName="fill" repeatCount="indefinite" dur="1s" calcMode="discrete"
+                            keyTimes="0;0.25;0.5;0.75;1" values="#220b09;#ff312d;#e88432;#d34c31;#220b09" begin="0s">
+                        </animate>
+                    </circle>
+                    <circle cx="16" cy="50" r="9.8286" fill="#220b09">
+                        <animate attributeName="r" repeatCount="indefinite" dur="1s" calcMode="spline"
+                            keyTimes="0;0.25;0.5;0.75;1" values="0;0;10;10;10"
+                            keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="0s"></animate>
+                        <animate attributeName="cx" repeatCount="indefinite" dur="1s" calcMode="spline"
+                            keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84"
+                            keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="0s"></animate>
+                    </circle>
+                    <circle cx="49.4172" cy="50" r="10" fill="#d34c31">
+                        <animate attributeName="r" repeatCount="indefinite" dur="1s" calcMode="spline"
+                            keyTimes="0;0.25;0.5;0.75;1" values="0;0;10;10;10"
+                            keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.25s"></animate>
+                        <animate attributeName="cx" repeatCount="indefinite" dur="1s" calcMode="spline"
+                            keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84"
+                            keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.25s"></animate>
+                    </circle>
+                    <circle cx="83.4172" cy="50" r="10" fill="#e88432">
+                        <animate attributeName="r" repeatCount="indefinite" dur="1s" calcMode="spline"
+                            keyTimes="0;0.25;0.5;0.75;1" values="0;0;10;10;10"
+                            keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.5s"></animate>
+                        <animate attributeName="cx" repeatCount="indefinite" dur="1s" calcMode="spline"
+                            keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84"
+                            keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.5s"></animate>
+                    </circle>
+                    <circle cx="16" cy="50" r="0" fill="#ff312d">
+                        <animate attributeName="r" repeatCount="indefinite" dur="1s" calcMode="spline"
+                            keyTimes="0;0.25;0.5;0.75;1" values="0;0;10;10;10"
+                            keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.75s"></animate>
+                        <animate attributeName="cx" repeatCount="indefinite" dur="1s" calcMode="spline"
+                            keyTimes="0;0.25;0.5;0.75;1" values="16;16;16;50;84"
+                            keySplines="0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1;0 0.5 0.5 1" begin="-0.75s"></animate>
+                    </circle>
+                    <!-- [ldio] generated by https://loading.io/ -->
+                </svg>
+            </div>
+            <!-- Search wrap -->
+            <div class="search-wrap">
+                <div class="d-flex flex-column">
+                    <div class="table-block d-flex">
+                        <div class="names-wrap">
+                            <table class="names">
+                                <thead>
+                                    <tr>
+                                        <td>Branches</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="search-names-tbody"></tbody>
+                            </table>
+                        </div>
+                        <div class="departaments-wrap">
+                            <table class="total">
+                                <thead>
+                                    <tr>
+                                        <td>TV</td>
+                                        <td>SERVED</td>
+                                        <td>WAITING</td>
+                                        <td>FU</td>
+                                        <td>MFT</td>
+                                        <td>OSP</td>
+                                        <td>CSP</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="search-total-tbody"></tbody>
+                            </table>
+                            <table class="services">
+                                <thead>
+                                    <tr>
+                                        <td>TV</td>
+                                        <td>SERVED</td>
+                                        <td>WAITING</td>
+                                        <td>FTE</td>
+                                        <td>CURR E</td>
+                                        <td>VACATION</td>
+                                        <td>TRIP TO</td>
+                                        <td>TRIP TO</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="search-services-tbody"></tbody>
+                            </table>
+                            <table class="sales">
+                                <thead>
+                                    <tr>
+                                        <td>TV</td>
+                                        <td>SERVED</td>
+                                        <td>WAITING</td>
+                                        <td>FTE</td>
+                                        <td>CURR E</td>
+                                        <td>VACATION</td>
+                                        <td>TRIP TO</td>
+                                        <td>TRIP TO</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="search-sales-tbody"></tbody>
+                            </table>
+                            <table class="cash">
+                                <thead>
+                                    <tr>
+                                        <td>TV</td>
+                                        <td>SERVED</td>
+                                        <td>WAITING</td>
+                                        <td>FTE</td>
+                                        <td>CURR E</td>
+                                        <td>VACATION</td>
+                                        <td>TRIP TO</td>
+                                        <td>TRIP TO</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="search-cash-tbody"></tbody>
+                            </table>
+                            <table class="legal">
+                                <thead>
+                                    <tr>
+                                        <td>TV</td>
+                                        <td>SERVED</td>
+                                        <td>WAITING</td>
+                                        <td>FTE</td>
+                                        <td>CURR E</td>
+                                        <td>VACATION</td>
+                                        <td>TRIP TO</td>
+                                        <td>TRIP TO</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="search-legal-tbody"></tbody>
+                            </table>
+                            <table class="legal-cash">
+                                <thead>
+                                    <tr>
+                                        <td>TV</td>
+                                        <td>SERVED</td>
+                                        <td>WAITING</td>
+                                        <td>FTE</td>
+                                        <td>CURR E</td>
+                                        <td>VACATION</td>
+                                        <td>TRIP TO</td>
+                                        <td>TRIP TO</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="search-legal-cash-tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Search wrap -->
+            <div class="preloader-fetch">
+                <img src="assets/images/logo-minisvg.svg" alt="">
+            </div>
+            <div class="table-header d-flex justify-content-between align-items-center">
+                <div class="table-name">Total</div>
+                <div class="search-input-wrap">
+                    <label>
+                        <input id="search" type="search" class="search" placeholder="Search branch">
+                    </label>
+                </div>
+            </div>
+            <div class="table-block table-main-block d-flex">
+                <div class="names-wrap">
+                    <table class="names">
+                        <thead>
+                            <tr>
+                                <td>Branches</td>
+                            </tr>
+                        </thead>
+                        <tbody class="names-tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="departaments-wrap">
+                    <table class="total">
+                        <thead>
+                            <tr>
+                                <td>TV</td>
+                                <td>SERVED</td>
+                                <td>WAITING</td>
+                                <td>FU</td>
+                                <td>MFT</td>
+                                <td>OSP</td>
+                                <td>CSP</td>
+                            </tr>
+                        </thead>
+                        <tbody class="total-tbody">
+
+                        </tbody>
+                    </table>
+                    <table class="services">
+                        <thead>
+                            <tr>
+                                <td>TV</td>
+                                <td>SERVED</td>
+                                <td>WAITING</td>
+                                <td>FTE</td>
+                                <td>CUR E</td>
+                                <td>VACATION</td>
+                                <td>TRIP TO</td>
+                                <td>TRIP TO</td>
+                            </tr>
+                        </thead>
+                        <tbody class="services-tbody">
+
+                        </tbody>
+                    </table>
+                    <table class="sales">
+                        <thead>
+                            <tr>
+                                <td>TV</td>
+                                <td>SERVED</td>
+                                <td>WAITING</td>
+                                <td>FTE</td>
+                                <td>CUR E</td>
+                                <td>VACATION</td>
+                                <td>TRIP TO</td>
+                                <td>TRIP TO</td>
+                            </tr>
+                        </thead>
+                        <tbody class="sales-tbody">
+
+                        </tbody>
+                    </table>
+                    <table class="cash">
+                        <thead>
+                            <tr>
+                                <td>TV</td>
+                                <td>SERVED</td>
+                                <td>WAITING</td>
+                                <td>FTE</td>
+                                <td>CUR E</td>
+                                <td>VACATION</td>
+                                <td>TRIP TO</td>
+                                <td>TRIP TO</td>
+                            </tr>
+                        </thead>
+                        <tbody class="cash-tbody">
+
+                        </tbody>
+                    </table>
+                    <table class="legal">
+                        <thead>
+                            <tr>
+                                <td>TV</td>
+                                <td>SERVED</td>
+                                <td>WAITING</td>
+                                <td>FTE</td>
+                                <td>CUR E</td>
+                                <td>VACATION</td>
+                                <td>TRIP TO</td>
+                                <td>TRIP TO</td>
+                            </tr>
+                        </thead>
+                        <tbody class="legal-tbody">
+
+                        </tbody>
+                    </table>
+                    <table class="legal-cash">
+                        <thead>
+                            <tr>
+                                <td>TV</td>
+                                <td>SERVED</td>
+                                <td>WAITING</td>
+                                <td>FTE</td>
+                                <td>CUR E</td>
+                                <td>VACATION</td>
+                                <td>TRIP TO</td>
+                                <td>TRIP TO</td>
+                            </tr>
+                        </thead>
+                        <tbody class="legal-cash-tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="pagination-wrap d-flex justify-content-between">
+                <select name="" id="pagination-select">
+                    <option value="300">All</option>
+                    <option value="5">5</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+                <div id="pagination-container"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="lib/jquery.js"></script>
+    <script src="lib/popper.min.js"></script>
+    <script src="lib/tippy.js"></script>
+    <script src="lib/pagination.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

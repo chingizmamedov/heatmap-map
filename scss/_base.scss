@@ -1,0 +1,42 @@
+/**
+    base
+*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tooltip {
+    padding: 5px;
+    background: rgb(153, 44, 44);
+    position: absolute;
+    z-index: 22;
+    color: #fff;
+    opacity: 0;
+    border-radius: 4px;
+    transition: .4s all;
+}
+
+.tooltip-shown {
+    // display: block;
+    opacity: 1;
+}
+
+.circle {
+    cursor: pointer;
+}
+
+body {
+    background: #3b3b3b;
+    font-family: 'Source Sans Pro', sans-serif;
+    overflow-x: hidden;
+}
+
+.content {
+    &-wrap {
+        position: relative;
+    }
+}

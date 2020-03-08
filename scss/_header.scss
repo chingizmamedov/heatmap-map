@@ -1,0 +1,35 @@
+.header {
+    height: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-bottom: 1px solid #EBD9DE;
+    background: #fff;
+
+    &-content {
+        width: 100%;
+    }
+}
+
+#icon {
+    fill: #DD3B44;
+}
+
+.question {
+    &-img {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    &-text {
+        font-size: 20px;
+        cursor: pointer;
+        position: relative;
+        margin-top: 6px;
+        display: inline-block;
+    }
+}
+
+.logo {
+    margin-right: 50px;
+}
