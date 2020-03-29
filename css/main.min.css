@@ -138,7 +138,7 @@ body {
 
 .btn-back-shown {
 	left: 100px;
-    transform: scale(2.5);
+	transform: scale(2.5);
 }
 
 .btn-gotable {
@@ -310,6 +310,7 @@ body {
 	animation-name: mapInfo;
 	animation-duration: 0.6s;
 	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+	display: none;
 }
 
 @keyframes mapInfo {
@@ -368,8 +369,8 @@ body {
 	cursor: pointer;
 }
 .baki:hover {
-	-webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));      
-    filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5)); 
+	-webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+	filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
 }
 .map-baki {
 	position: absolute;
