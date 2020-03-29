@@ -916,9 +916,14 @@ const drowBranchesTime = branches => {
 };
 
 const drowBranchesTimeBaku = branches => {
+	console.log("branches", branches);
+
 	for (let [key, value] of Object.entries(branches)) {
 		if (value.filialY !== undefined && value.filialX !== undefined) {
+			console.log("inputLength", inputLength);
 			if (inputLength > 2) {
+				console.log("regValue.test(value.name)", regValue.test(value.name));
+				console.log("value.name", value.name);
 				if (regValue.test(value.name)) {
 					setSirclesTimeBaku(key, value);
 				}
@@ -970,6 +975,9 @@ const deleteBranches = () => {
 const getAllData = () => {
 	console.log("sdas");
 	getMapAveValyutaWaitData().then(response => {
+		$("#valyuta-custom")
+			.parent()
+			.show("slow");
 		document.getElementById("valyuta-custom").innerHTML =
 			response.averageValyutaWaiting;
 	});
@@ -980,29 +988,53 @@ const getAllData = () => {
 		$("#no-show").text(lo.noShow);
 	});
 	getMapAveServTimeData().then(resp => {
+		$("#ave-serv-time")
+			.parent()
+			.show("slow");
 		$("#ave-serv-time").text(resp.averageServingTime);
 	});
 	getMapAveWaitData().then(resp => {
+		$("#ave-waiting-time")
+			.parent()
+			.show("slow");
 		$("#ave-waiting-time").text(resp.averageWaitingTime);
 	});
 	getMapClosePointData().then(resp => {
+		$("#closed-counters")
+			.parent()
+			.show("slow");
 		$("#closed-counters").text(resp.closedServicePoints);
 	});
 	getMapDataCusWait().then(resp => {
+		$("#waiting-custom")
+			.parent()
+			.show("slow");
 		document.getElementById("waiting-custom").innerText = resp.customersWaiting;
 	});
 	getMapDataOpenPoint().then(resp => {
+		$("#open-counters")
+			.parent()
+			.show("slow");
 		$("#open-counters").text(resp.openServicePoints);
 	});
 	getMapMaxWaitData().then(resp => {
+		$("#max-waiting-time")
+			.parent()
+			.show("slow");
 		document.getElementById("max-waiting-time").innerText = resp.maxWaitingTime;
 	});
 
 	getMapServCusData().then(resp => {
+		$("#served-custom")
+			.parent()
+			.show("slow");
 		document.getElementById("served-custom").innerText = resp.servedCustomers;
 	});
 
 	getMapRemovedData().then(resp => {
+		$("#removed")
+			.parent()
+			.show("slow");
 		document.getElementById("removed").innerText = resp.removed;
 	});
 
@@ -1079,6 +1111,7 @@ $(function() {
 		inputLength = inputVal.length;
 
 		if (whichShown === "time") {
+			deleteBranches();
 			drowBranchesTime(responseAllFilials);
 			drowBranchesTimeBaku(responseBakuFiliasl);
 		} else {
