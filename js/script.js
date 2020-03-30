@@ -1035,7 +1035,6 @@ const getAllData = () => {
 			.show("slow");
 		document.getElementById("removed").innerText = resp.removed;
 	});
-	getMapData().then(response => {});
 	if (whichShown === "time") {
 		getMapTimeData()
 			.then(resp => {
