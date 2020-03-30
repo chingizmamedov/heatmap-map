@@ -1098,20 +1098,91 @@ const getAllData = () => {
 
 getAllData();
 
+/***
+ * cusotm search
+ */
+
+const inputElement = document.getElementById("search-td");
+const searchList = document.getElementById("search-list");
+
+getMapPercentData().then(response => {
+	drowSearchItems(response);
+});
+
+function setActionsForListItem() {
+	const listForAction = document.getElementsByClassName("list-group-item");
+	Object.keys(listForAction).forEach(item => {
+		listForAction[item].onclick = function() {
+			inputValue = this.getAttribute("data-name");
+			var reg = new RegExp(inputValue, "i");
+			regValue = reg;
+			inputLength = inputValue.length;
+			if (whichShown === "time") {
+				deleteBranches();
+				drowBranchesTime(responseAllFilials);
+				drowBranchesTimeBaku(responseBakuFiliasl);
+			} else {
+				drowBranchesPercent(responseAllFilials);
+				drowBranchesPercentBaku(responseBakuFiliasl);
+			}
+		};
+	});
+}
+
+function drowSearchItems(data) {
+	let items = ``;
+
+	data.forEach(dataItem => {
+		let item = ``;
+		item += `<div class="list-group-item" data-id="${dataItem.id}" data-name="${dataItem.name}">
+					<span>${dataItem.name}</span>
+				</div>`;
+		items += item;
+	});
+	document.getElementById("search-list").innerHTML = items;
+	setActionsForListItem();
+}
+
+function showNeedListItem(value) {
+	searchList.style.transform = "scaleY(1)";
+	let listItems = document.getElementsByClassName("list-group-item");
+	var reg = new RegExp(value, "i");
+	Object.keys(listItems).forEach(item => {
+		let name = listItems[item].getAttribute("data-name");
+		if (reg.test(name)) {
+			listItems[item].style.display = "block";
+			listItems[item].style.transform = "scaleY(1)";
+		} else {
+			listItems[item].style.display = "none";
+			listItems[item].style.transform = "scaleY(0)";
+		}
+	});
+}
+
+/***
+ * cusotm search
+ */
+
 $(function() {
 	$("#search").on("input", function(e) {
-		var inputVal = $(this).val();
-		var reg = new RegExp(inputVal, "i");
-		regValue = reg;
-		inputLength = inputVal.length;
-
-		if (whichShown === "time") {
-			deleteBranches();
-			drowBranchesTime(responseAllFilials);
-			drowBranchesTimeBaku(responseBakuFiliasl);
-		} else {
-			drowBranchesPercent(responseAllFilials);
-			drowBranchesPercentBaku(responseBakuFiliasl);
+		const VAL = this.value;
+		showNeedListItem(VAL);
+		if (VAL.length < 1) {
+			searchList.style.transform = "scaleY(0)";
+			var reg = new RegExp("", "i");
+			regValue = reg;
+			if (whichShown === "time") {
+				deleteBranches();
+				drowBranchesTime(responseAllFilials);
+				drowBranchesTimeBaku(responseBakuFiliasl);
+			} else {
+				drowBranchesPercent(responseAllFilials);
+				drowBranchesPercentBaku(responseBakuFiliasl);
+			}
 		}
 	});
 });
+
+document.onclick = function() {
+	searchList.style.transform = "scaleY(0)";
+};
