@@ -1023,23 +1023,18 @@ const getAllData = () => {
 			.show("slow");
 		document.getElementById("max-waiting-time").innerText = resp.maxWaitingTime;
 	});
-
 	getMapServCusData().then(resp => {
 		$("#served-custom")
 			.parent()
 			.show("slow");
 		document.getElementById("served-custom").innerText = resp.servedCustomers;
 	});
-
 	getMapRemovedData().then(resp => {
 		$("#removed")
 			.parent()
 			.show("slow");
 		document.getElementById("removed").innerText = resp.removed;
 	});
-
-	getMapData().then(response => {});
-
 	if (whichShown === "time") {
 		getMapTimeData()
 			.then(resp => {
