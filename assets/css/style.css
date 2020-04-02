@@ -5205,12 +5205,14 @@ span.sec_icon {
 	color: #999999;
 	font-weight: 400;
 	margin-bottom: 9px;
+	text-align: right;
 }
 .homepage_fl_right h3 {
 	font-size: 22px;
 	color: #2e2e3a;
 	font-weight: 500;
 	margin-bottom: 0px;
+	text-align: right;
 }
 .homepage_single p {
 	padding-top: 15px;
