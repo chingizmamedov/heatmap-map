@@ -881,6 +881,7 @@ body {
 	position: relative;
 	overflow-x: hidden;
 	overflow-y: auto;
+	padding-bottom: 60px;
 }
 
 .wrapper:before,
@@ -910,6 +911,7 @@ body {
 .container_header {
 	float: left;
 	width: 100%;
+	display: flex;
 }
 
 .min-h {
@@ -1808,7 +1810,7 @@ body {
 		right: -35px;
 	}
 	.nav_small .logo {
-		width: 70px;
+		width: 0;
 		padding: 10px 10px 10px 2px !important;
 		text-align: center;
 		justify-content: center;
@@ -2426,6 +2428,11 @@ body {
 .footer {
 	background: #fff;
 	padding-left: 270px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	margin-left: 270px;
 }
 .mobile_nav .footer {
 	padding-left: 70px;

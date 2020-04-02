@@ -245,6 +245,11 @@ body {
 /**
     map
 */
+
+#maps-wrap {
+	display: flex;
+	justify-content: center;
+}
 #map1 {
 	display: -webkit-box;
 	display: -ms-flexbox;
