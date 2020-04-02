@@ -64,59 +64,25 @@
 					<div class="logo d-flex align-items-center">
 						<a href="#">
 							<strong class="logo_icon">
-								<img src="assets/images/small-logo.png" alt="" />
+								<img src="assets/ico" alt="" />
 							</strong>
 							<span class="logo-default">
-								<img src="assets/images/icon/logo-red.png" alt="" />
+								<img
+									style="width: 75%;"
+									src="assets/images/icon/logo-red.png"
+									alt=""
+								/>
 							</span>
 						</a>
+
+						<div class="icon_menu full_menu">
+							<a href="#" class="menu-toggler sidebar-toggler"></a>
+						</div>
 					</div>
 
 					<div class="right_detail">
 						<div class="row d-flex align-items-center min-h pos-md-r">
-							<div class="col-xl-5 col-3 search_col ">
-								<div class="top_function">
-									<div class="search">
-										<a
-											id="toggle_res_search"
-											data-toggle="collapse"
-											data-target="#search_form"
-											class="res-only-view collapsed"
-											href="javascript:void(0);"
-											aria-expanded="false"
-										>
-											<i class=" icon-magnifier"></i>
-										</a>
-
-										<form
-											id="search_form"
-											role="search"
-											class="search-form collapse"
-											action="#"
-										>
-											<div class="input-group">
-												<input
-													type="text"
-													class="form-control"
-													placeholder="Search..."
-												/>
-
-												<button
-													type="button"
-													class="btn"
-													data-target="#search_form"
-													data-toggle="collapse"
-													aria-label="Close"
-												>
-													<i class="ion-android-search"></i>
-												</button>
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-xl-7 col-9 d-flex justify-content-end">
+							<div class="col-xl-12 col-9 d-flex justify-content-end">
 								<div class="right_bar_top d-flex align-items-center">
 									<!-- notification_Start -->
 
@@ -417,7 +383,71 @@
 					</div>
 				</div>
 			</header>
+
+			<!-- header_End -->
+
+			<!-- Content_right -->
+
 			<div class="container_full">
+				<div class="side_bar scroll_auto">
+					<div class="user-panel">
+						<div class="user_image">
+							<img
+								src="assets/images/about-1.jpg"
+								class="img-circle mCS_img_loaded"
+								alt="User Image"
+							/>
+						</div>
+
+						<div class="info">
+							<p>
+								Alexander Pierce
+							</p>
+						</div>
+					</div>
+					<ul id="dc_accordion" class="sidebar-menu tree">
+						<li class="menu_sub">
+							<a href="#"> <i class="fa fa-home"></i> <span>Map</span> </a>
+						</li>
+
+						<li class="menu_sub">
+							<a href="#">
+								<i class="fa fa-newspaper-o"></i> <span>Branches</span>
+							</a>
+						</li>
+
+						<li class="menu_sub">
+							<a href="#">
+								<i class="fa fa-pie-chart"></i> <span>Valyuta</span>
+							</a>
+						</li>
+
+						<li class="menu_sub">
+							<a href="#">
+								<i class="fa fa-laptop"></i> <span>Counters</span>
+							</a>
+						</li>
+
+						<li class="menu_sub">
+							<a href="#">
+								<i class="fa fa-table"></i> <span>Department </span>
+							</a>
+						</li>
+
+						<li class="menu_sub">
+							<a href="#">
+								<i class="fa fa-envelope-o"></i> <span>Fte </span>
+							</a>
+						</li>
+
+						<li class="menu_sub">
+							<a href="#">
+								<i class="fa fa-calendar"></i> <span>Reports </span>
+							</a>
+						</li>
+					</ul>
+				</div>
+
 				<div class="content_wrapper">
 					<div class="container-fluid">
 						<!-- breadcrumb -->
@@ -426,7 +456,7 @@
 							<div class="row d-flex align-items-center">
 								<div class="col-md-6">
 									<div class="page-breadcrumb">
-										<h1>Dashboard</h1>
+										<h1>Map</h1>
 									</div>
 								</div>
 
@@ -442,7 +472,7 @@
 											</li>
 
 											<li class="active">
-												Dashboard
+												Map
 											</li>
 										</ol>
 									</div>
@@ -456,97 +486,34 @@
 
 						<section class="chart_section">
 							<div class="row">
-								<div class="col-xl-7 mb-4">
-									<div class="card card-shadow">
-										<div class="card-header">
-											<div class="card-title">
-												Top Selling Country
-											</div>
-										</div>
+								<div class="col-xl-3 col-sm-6 mb-4">
+									<div class="card border-0 text-light">
+										<div class="card-body">
+											<div class="row">
+												<div class="col-12">
+													<div class="homepage_single">
+														<span class="sec_icon"
+															><i class="fa fa-dollar" aria-hidden="true"></i
+														></span>
 
-										<div class="row">
-											<div class="col-xl-8 col-lg-7 col-md-8">
-												<div class="card-body">
-													<div
-														class="vmap-wrap"
-														id="world-map"
-														style="height:200px;"
-													></div>
-												</div>
-											</div>
+														<div class="homepage_fl_right">
+															<h4 class="mt-0">Daily sales</h4>
 
-											<div class="col-xl-4 col-lg-5 col-md-4">
-												<div class="card-body">
-													<div class="text_country">
-														<h2 class="mt-0">
-															<img src="assets/images/flag1.png" alt="" />
-															Russia <span>65%</span>
-														</h2>
-
-														<div class="progress mb-4" style="height: 5px;">
-															<div
-																class="progress-bar bg-primary"
-																role="progressbar"
-																style="width: 65%;"
-																aria-valuenow="65"
-																aria-valuemin="0"
-																aria-valuemax="100"
-															></div>
+															<h3>
+																$30, <span class="single-count">305</span>
+															</h3>
 														</div>
-													</div>
 
-													<div class="text_country">
-														<h2 class="mt-0">
-															<img src="assets/images/flag2.png" alt="" /> Spain
-															<span>35%</span>
-														</h2>
-
-														<div class="progress mb-4" style="height: 5px;">
-															<div
-																class="progress-bar bg-warning"
-																role="progressbar"
-																style="width:35%;"
-																aria-valuenow="35"
-																aria-valuemin="0"
-																aria-valuemax="100"
-															></div>
-														</div>
-													</div>
-
-													<div class="text_country">
-														<h2 class="mt-0">
-															<img src="assets/images/flag4.png" alt="" />
-															Ukraine <span>75%</span>
-														</h2>
-
-														<div class="progress mb-4" style="height: 5px;">
-															<div
-																class="progress-bar bg-success"
-																role="progressbar"
-																style="width:75%;"
-																aria-valuenow="75"
-																aria-valuemin="0"
-																aria-valuemax="100"
-															></div>
-														</div>
-													</div>
-
-													<div class="text_country">
-														<h2 class="mt-0">
-															<img src="assets/images/flag5.png" alt="" /> Ghana
-															<span>67%</span>
-														</h2>
-
-														<div class="progress mb-4" style="height: 5px;">
-															<div
-																class="progress-bar bg-info"
-																role="progressbar"
-																style="width:67%;"
-																aria-valuenow="67"
-																aria-valuemin="0"
-																aria-valuemax="100"
-															></div>
-														</div>
+														<p>
+															Total items sold
+															<span class="fl_right text-success"
+																>GOOD
+																<i
+																	class="fa fa-long-arrow-up"
+																	aria-hidden="true"
+																></i
+															></span>
+														</p>
 													</div>
 												</div>
 											</div>
@@ -554,264 +521,95 @@
 									</div>
 								</div>
 
-								<div class="col-xl-5 mb-4 ">
-									<div class="row">
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
+								<div class="col-xl-3 col-sm-6 mb-4">
+									<div class="card border-0 text-light">
+										<div class="card-body">
+											<div class="row">
+												<div class="col-12">
+													<div class="homepage_single">
+														<span class="sec_icon"
+															><i class="fa fa-group" aria-hidden="true"></i
+														></span>
 
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
+														<div class="homepage_fl_right">
+															<h4 class="mt-0">Visitors</h4>
 
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
+															<h3>75, <span class="single-count">843</span></h3>
 														</div>
+
+														<p>
+															Visitors
+															<span class="fl_right text-danger"
+																>Normal
+																<i
+																	class="fa fa-long-arrow-down"
+																	aria-hidden="true"
+																></i
+															></span>
+														</p>
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
+									</div>
+								</div>
 
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
+								<div class="col-xl-3 col-sm-6 mb-4">
+									<div class="card border-0 text-light">
+										<div class="card-body">
+											<div class="row">
+												<div class="col-12">
+													<div class="homepage_single">
+														<span class="sec_icon"
+															><i class="fa fa-envelope" aria-hidden="true"></i
+														></span>
 
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
+														<div class="homepage_fl_right">
+															<h4 class="mt-0">Messages</h4>
+
+															<h3><span class="single-count">1228</span></h3>
 														</div>
+
+														<p>
+															Last month
+															<span class="fl_right text-danger"
+																>Normal
+																<i
+																	class="fa fa-long-arrow-down"
+																	aria-hidden="true"
+																></i
+															></span>
+														</p>
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
+									</div>
+								</div>
 
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
+								<div class="col-xl-3 col-sm-6 mb-4">
+									<div class="card border-0 text-light">
+										<div class="card-body">
+											<div class="row">
+												<div class="col-12">
+													<div class="homepage_single">
+														<span class="sec_icon"
+															><i class="fa fa-heart" aria-hidden="true"></i
+														></span>
 
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
+														<div class="homepage_fl_right">
+															<h4 class="mt-0">Followers</h4>
+
+															<h3><span class="single-count">+1234K</span></h3>
 														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
 
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
-
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
-
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
-
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
-
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
-
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
-
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
-
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
-
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
-
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
-
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
-
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-xl-6 col-sm-12 mb-4">
-											<div class="card border-0 text-light">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-12">
-															<div class="homepage_single">
-																<span class="sec_icon"
-																	><i
-																		class="fa fa-dollar"
-																		aria-hidden="true"
-																	></i
-																></span>
-
-																<div class="homepage_fl_right">
-																	<h4 class="mt-0">Daily sales</h4>
-
-																	<h3>
-																		$30, <span class="single-count">305</span>
-																	</h3>
-																</div>
-															</div>
-														</div>
+														<p>
+															Update now
+															<span class="fl_right text-success"
+																>Update
+																<i class="fa fa-refresh" aria-hidden="true"></i
+															></span>
+														</p>
 													</div>
 												</div>
 											</div>
@@ -825,6 +623,30 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- Content_right_End -->
+
+			<!-- Footer -->
+
+			<footer class="footer ptb-20">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div class="copy_right">
+							<p>
+								2018 © Dashboard Theme By
+
+								<a href="#">Poliset</a>
+							</p>
+						</div>
+
+						<a id="back-to-top" href="#">
+							<i class="ion-android-arrow-up"></i>
+						</a>
+					</div>
+				</div>
+			</footer>
+
+			<!-- Footer_End -->
 		</div>
 
 		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
