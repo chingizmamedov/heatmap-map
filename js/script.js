@@ -43,6 +43,7 @@ const ALL_FILIALS = {
 		filialName: "Biləsuvar filialı",
 		id: "9",
 	},
+
 	"11": {
 		filialX: 502,
 		filialY: 427,
