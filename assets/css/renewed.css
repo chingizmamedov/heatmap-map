@@ -65,14 +65,14 @@
 
 .left-card-icon {
 	position: absolute;
-	right: 10px;
-	top: -8px;
+	right: 20px;
+	top: 2px;
 	transform: scale(1.6);
 }
 .right-card-icon {
 	position: absolute;
-	right: 10px;
-	top: -8px;
+	right: 20px;
+	top: 2px;
 	transform: scale(1.6);
 }
 .header-group {
@@ -135,8 +135,9 @@
 /* test */
 
 span.sec_icon {
-	border: 1px solid #a91e3d;
-	color: #a91e3d;
+	border: 1px solid #a2a2a2;
+	color: #a2a2a2;
+	transform: scale(0.7) translateY(-6px);
 }
 
 .nav-pill-custom .nav-link,
@@ -191,4 +192,11 @@ span.sec_icon {
 .footer-row .card .progress-bar {
 	background-color: #a91e3d !important;
 	width: 100% !important;
+}
+.d.text-left h3 {
+	color: #a91e3d;
+}
+
+h3.text-success.mt-1 {
+	font-size: 16px;
 }
