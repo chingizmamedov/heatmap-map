@@ -784,7 +784,7 @@ const setCirclesTime = (key, value) => {
 	circleTime.setAttribute("data-type", "time");
 	circleTime.setAttributeNS(null, "cx", value.filialX);
 	circleTime.setAttributeNS(null, "cy", value.filialY);
-	circleTime.setAttributeNS(null, "r", 2);
+	circleTime.setAttributeNS(null, "r", 3);
 	circleTime.classList.add("circle");
 	if (value.averageWaitingTime !== undefined) {
 		circleTime.setAttribute(
@@ -816,7 +816,7 @@ const setCirclesPercent = (key, value) => {
 	circlePercent.setAttribute("data-type", "percent");
 	circlePercent.setAttributeNS(null, "cx", value.filialX);
 	circlePercent.setAttributeNS(null, "cy", value.filialY);
-	circlePercent.setAttributeNS(null, "r", 2);
+	circlePercent.setAttributeNS(null, "r", 3);
 	if (value.percent !== undefined) {
 		circlePercent.setAttribute("data-percent-text", value.percent);
 		let color = "green";
@@ -867,7 +867,6 @@ const setSirclesTimeBaku = (key, value) => {
 	circleTime.classList.add("circle");
 	circleTime.style.stroke;
 	svgTimeBaku.appendChild(circleTime);
-	console.log("baki inner time", bakuTimeColor);
 };
 
 const setSirclesPercentBaku = (key, value) => {
@@ -897,15 +896,15 @@ const setSirclesPercentBaku = (key, value) => {
 	}
 	circlePercent.classList.add("circle");
 	svgPercentBaku.appendChild(circlePercent);
-	console.log("indaclub", bakuPercentColor);
 };
 
 const drowBranchesTime = branches => {
+	console.log("branches", branches);
+	console.log("regValue", regValue);
 	for (let [key, value] of Object.entries(branches)) {
 		if (value.filialY !== undefined && value.filialX !== undefined) {
 			if (inputLength > 2) {
 				if (regValue.test(value.name)) {
-					// debugger;
 					setCirclesTime(key, value);
 				}
 			} else {
@@ -917,14 +916,9 @@ const drowBranchesTime = branches => {
 };
 
 const drowBranchesTimeBaku = branches => {
-	console.log("branches", branches);
-
 	for (let [key, value] of Object.entries(branches)) {
 		if (value.filialY !== undefined && value.filialX !== undefined) {
-			console.log("inputLength", inputLength);
 			if (inputLength > 2) {
-				console.log("regValue.test(value.name)", regValue.test(value.name));
-				console.log("value.name", value.name);
 				if (regValue.test(value.name)) {
 					setSirclesTimeBaku(key, value);
 				}
@@ -974,7 +968,6 @@ const deleteBranches = () => {
 };
 
 const getAllData = () => {
-	console.log("sdas");
 	getMapAveValyutaWaitData().then(response => {
 		$("#valyuta-custom")
 			.parent()
@@ -1090,8 +1083,6 @@ const getAllData = () => {
 				document.getElementsByClassName(
 					"baki-percent",
 				)[0].style.fill = bakuPercentColor;
-				console.log("getAllData -> bakuPercentColor", bakuPercentColor);
-				console.log("getAllData -> responseBakuFiliasl", responseBakuFiliasl);
 				setTimeout(getAllData, INTERVAL);
 			});
 	}
@@ -1118,8 +1109,8 @@ function setActionsForListItem() {
 			var reg = new RegExp(inputValue, "i");
 			regValue = reg;
 			inputLength = inputValue.length;
+			deleteBranches();
 			if (whichShown === "time") {
-				deleteBranches();
 				drowBranchesTime(responseAllFilials);
 				drowBranchesTimeBaku(responseBakuFiliasl);
 			} else {
@@ -1172,8 +1163,8 @@ $(function() {
 			searchList.style.transform = "scaleY(0)";
 			var reg = new RegExp("", "i");
 			regValue = reg;
+			deleteBranches();
 			if (whichShown === "time") {
-				deleteBranches();
 				drowBranchesTime(responseAllFilials);
 				drowBranchesTimeBaku(responseBakuFiliasl);
 			} else {

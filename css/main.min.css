@@ -12,18 +12,22 @@
 	box-sizing: border-box;
 }
 
-.tooltip {
+.tooltip-float {
 	padding: 5px;
-	background: #992c2c;
 	position: absolute;
-	z-index: 22;
+	z-index: 22 !important;
 	color: #fff;
+	transform: scale(0);
 	opacity: 0;
 	border-radius: 4px;
 	-webkit-transition: 0.3s all;
 	-o-transition: 0.3s all;
 	transition: 0.3s all;
-	text-align: center;
+	text-align: left;
+	transition-timing-function: cubic-bezier(0.48, 0.71, 0.5, 1.37);
+}
+#tooltip-float-filname {
+	color: white;
 }
 .home {
 	width: 33px;
@@ -35,7 +39,8 @@
 	justify-content: center;
 	margin-left: 10px;
 }
-.tooltip-shown {
+.tooltip-float-shown {
+	transform: scale(1);
 	opacity: 1;
 }
 
@@ -126,6 +131,7 @@ body {
 	-webkit-transition: 0.3s;
 	-o-transition: 0.3s;
 	transition: 0.3s;
+	z-index: 999;
 }
 
 .btn-back span {
@@ -137,7 +143,7 @@ body {
 }
 
 .btn-back-shown {
-	left: 100px;
+	left: 240px;
 	transform: scale(2.5);
 }
 
@@ -162,11 +168,10 @@ body {
 	background: #e73e47;
 }
 
-#search {
+/* #search {
 	height: 33px;
 	border: 1px solid #d2d2d2;
 	border-radius: 7px;
-	/*position: absolute;*/
 	right: 37px;
 	background-image: url(../assets/icon/search_24px_outlined.svg);
 	background-repeat: no-repeat;
@@ -179,7 +184,7 @@ body {
 	position: absolute;
 	height: 33px;
 	right: 50px;
-}
+} */
 
 .branchgo-btn {
 	position: absolute;
@@ -284,7 +289,7 @@ body {
 
 #sgs-time,
 #sgs-percent {
-	transform: scale(1.3);
+	transform: scale(1.17);
 	-webkit-transition: 0.4s;
 	-o-transition: 0.4s;
 	transition: 0.4s;
@@ -300,9 +305,9 @@ body {
 }
 
 .map-wrap {
-	height: calc(100vh - 157px);
-	position: relative;
-	background: #da7358;
+	/* height: calc(100vh - 157px);
+	position: relative; */
+	/* background: #da7358; */
 }
 
 .map-info {
@@ -478,7 +483,7 @@ body {
 }
 
 .map-baki-svg {
-	transform: scale(0.7);
+	transform: scale(0.5);
 }
 .circle {
 	stroke-width: 5;
@@ -692,9 +697,6 @@ keyframessvg
 		margin: auto;
 		transform: scale(1);
 	}
-	.map-baki-svg {
-		transform: scale(0.6);
-	}
 }
 
 #search-td {
@@ -709,17 +711,18 @@ keyframessvg
 
 #search-list {
 	position: absolute;
-	left: 0;
-	top: 32px;
-	width: 100%;
+	top: 40px;
+	width: 340px;
+	width: 340px;
 	background: white;
 	max-height: 200px;
 	overflow-y: auto;
-	z-index: 22;
-	box-shadow: 0px 6px 18px #454545;
+	z-index: 9009;
+	box-shadow: 0px 6px 20px 1px #eaeef3;
 	transform: scaleY(0);
 	transform-origin: top;
 	transition: 0.3s;
+	border-radius: 6px;
 }
 .list-group-item {
 	transform: scaleY(0);
@@ -730,4 +733,11 @@ keyframessvg
 
 .search-list-item {
 	padding: 4px 6px;
+}
+
+/* tets */
+
+path {
+	fill: #d5d9dc;
+	stroke: rgb(153, 153, 153);
 }
