@@ -24,6 +24,7 @@
 	-o-transition: 0.3s all;
 	transition: 0.3s all;
 	text-align: left;
+	border: none;
 	transition-timing-function: cubic-bezier(0.48, 0.71, 0.5, 1.37);
 }
 #tooltip-float-filname {
@@ -497,17 +498,6 @@ body {
 	animation-timing-function: ease-in-out;
 }
 
-.modal {
-	padding: 20px;
-	border-radius: 8px;
-	background: #6ac22f;
-	-webkit-box-shadow: 0 0 10px #e1e1e1;
-	box-shadow: 0 0 10px #e1e1e1;
-	position: fixed;
-	top: 20px;
-	left: 20px;
-}
-
 .box {
 	padding: 8px;
 	border: 1px solid #333;
@@ -740,4 +730,9 @@ keyframessvg
 path {
 	fill: #d5d9dc;
 	stroke: rgb(153, 153, 153);
+}
+
+#counter-list {
+	max-height: 30vh;
+	overflow-y: auto;
 }

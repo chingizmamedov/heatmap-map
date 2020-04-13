@@ -9,15 +9,15 @@ $(function() {
 		$(this)
 			.parent()
 			.css({
-				transform: "scale(0)",
+				transform: "scale(0)"
 			});
 		$("#map-baki-time").addClass("map-baki-shown");
 		$(".btn-back").addClass("btn-back-shown");
 		$(".map-left .map-info").css({
-			transform: "translateX(-90%) scale(.8)",
+			transform: "translateX(-90%) scale(.8)"
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(90%) scale(.8)",
+			transform: "translateX(90%) scale(.8)"
 		});
 	});
 
@@ -25,72 +25,63 @@ $(function() {
 		$(this)
 			.parent()
 			.css({
-				transform: "scale(0)",
+				transform: "scale(0)"
 			});
 		$("#map-baki-percent").addClass("map-baki-shown");
 		$(".btn-back").addClass("btn-back-shown");
 		$(".map-left .map-info").css({
-			transform: "translateX(-90%) scale(.8)",
+			transform: "translateX(-90%) scale(.8)"
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(90%) scale(.8)",
+			transform: "translateX(90%) scale(.8)"
 		});
 	});
 	const TOOLTIP = $(".tooltip-float");
-	console.log("description", TOOLTIP);
 	$("body").on("mousemove", "#sgs-time", function(e) {
 		TOOLTIP.css({
 			left: e.pageX,
-			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100,
+			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100
 		});
 		const checkHover = e.target.classList.contains("circle");
 		if (!checkHover) {
-			console.log("not hovered");
 			TOOLTIP.removeClass("tooltip-float-shown");
 		} else {
-			console.log("hovered");
 			TOOLTIP.addClass("tooltip-float-shown");
 		}
 	});
 	$("body").on("mousemove", "#sgs-percent", function(e) {
 		TOOLTIP.css({
 			left: e.pageX,
-			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100,
+			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100
 		});
 		const checkHover = e.target.classList.contains("circle");
 		if (!checkHover) {
-			console.log("not hovered");
 			TOOLTIP.removeClass("tooltip-float-shown");
 		} else {
-			console.log("hovered");
 			TOOLTIP.addClass("tooltip-float-shown");
 		}
 	});
 	$("body").on("mousemove", "#map-baki-percent-svg", function(e) {
 		TOOLTIP.css({
 			left: e.pageX,
-			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100,
+			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100
 		});
 		const checkHover = e.target.classList.contains("circle");
 		if (!checkHover) {
-			console.log("not hovered");
 			TOOLTIP.removeClass("tooltip-float-shown");
 		} else {
-			console.log("hovered");
 			TOOLTIP.addClass("tooltip-float-shown");
 		}
 	});
 	$("body").on("mousemove", "#map-baki-time-svg", function(e) {
 		TOOLTIP.css({
 			left: e.pageX,
-			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100,
+			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100
 		});
 		const checkHover = e.target.classList.contains("circle");
 		if (!checkHover) {
-			console.log("not hovered");
 			TOOLTIP.removeClass("tooltip-float-shown");
 		} else {
-			console.log("hovered");
 			TOOLTIP.addClass("tooltip-float-shown");
 		}
 	});
@@ -141,7 +132,6 @@ $(function() {
 		event = e.target;
 		element = e.target;
 		let circleType = event.getAttribute("data-type");
-		console.log("circleType", circleType);
 
 		if (circleType === "time") {
 			const data = event.getAttribute("data-awg-text");
@@ -150,7 +140,6 @@ $(function() {
 			let time = data.split(":");
 			let sec =
 				parseInt(time[0] * 360) + parseInt(time[1] * 60) + parseInt(time[2]);
-			console.log("time", sec);
 			setTImeTooltipColor(sec);
 		} else {
 			document.getElementById("tooltip-float-percent").innerHTML =
@@ -173,20 +162,20 @@ $(function() {
 	$(".btn-back").click(function() {
 		if (whichShown == "time") {
 			$("#sgs-time").css({
-				transform: "scale(1)",
+				transform: "scale(1)"
 			});
 		} else {
 			$("#sgs-percent").css({
-				transform: "scale(1)",
+				transform: "scale(1)"
 			});
 		}
 		$(".map-baki").removeClass("map-baki-shown");
 		$(".btn-back").removeClass("btn-back-shown");
 		$(".map-left .map-info").css({
-			transform: "translateX(0) scale(1)",
+			transform: "translateX(0) scale(1)"
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(0) scale(1)",
+			transform: "translateX(0) scale(1)"
 		});
 	});
 	$("#tab-time").click(function() {
@@ -204,10 +193,10 @@ $(function() {
 		$("#sgs-time").css("transform", "scale(1)");
 		$("#map-time").removeClass("d-none");
 		$(".map-left .map-info").css({
-			transform: "translateX(0) scale(1)",
+			transform: "translateX(0) scale(1)"
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(0) scale(1)",
+			transform: "translateX(0) scale(1)"
 		});
 		$(".btn-back").removeClass("btn-back-shown");
 	});
@@ -226,10 +215,10 @@ $(function() {
 		$("#map-time").removeClass("d-flex");
 		$("#map-time").addClass("d-none");
 		$(".map-left .map-info").css({
-			transform: "translateX(0) scale(1)",
+			transform: "translateX(0) scale(1)"
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(0) scale(1)",
+			transform: "translateX(0) scale(1)"
 		});
 		$(".btn-back").removeClass("btn-back-shown");
 	});

@@ -5,447 +5,447 @@ const ALL_FILIALS = {
 		filialX: 312,
 		filialY: 211,
 		filialName: "Atabank",
-		id: "1",
+		id: "1"
 	},
 	"3": {
 		filialX: 309,
 		filialY: 318,
 		filialName: "Ağdam filialı",
-		id: "3",
+		id: "3"
 	},
 	"5": {
 		filialX: 98,
 		filialY: 111,
 		filialName: "Aqstafa filialı",
-		id: "5",
+		id: "5"
 	},
 	"6": {
 		filialX: 548,
 		filialY: 600,
 		filialName: "Astara filialı",
-		id: "6",
+		id: "6"
 	},
 	"7": {
 		filialX: 227,
 		filialY: 31,
 		filialName: "Balakən filialı",
-		id: "7",
+		id: "7"
 	},
 	"8": {
 		filialX: 328,
 		filialY: 277,
 		filialName: "Bərdə filialı",
-		id: "8",
+		id: "8"
 	},
 	"9": {
 		filialX: 495,
 		filialY: 425,
 		filialName: "Biləsuvar filialı",
-		id: "9",
+		id: "9"
 	},
 
 	"11": {
 		filialX: 502,
 		filialY: 427,
 		filialName: "Cəbrayıl filialı",
-		id: "11",
+		id: "11"
 	},
 	"12": {
 		filialX: 336,
 		filialY: 278,
 		filialName: "Bərdə kart mərkəzi",
-		id: "12",
+		id: "12"
 	},
 	"14": {
 		filialX: 496,
 		filialY: 473,
 		filialName: "Cəlilabad filialı",
-		id: "14",
+		id: "14"
 	},
 	"15": {
 		filialX: 212,
 		filialY: 211,
 		filialName: "Gəncə filialı",
-		id: "15",
+		id: "15"
 	},
 	"18": {
 		filialX: 252,
 		filialY: 215,
 		filialName: "Goranboy filialı",
-		id: "18",
+		id: "18"
 	},
 	"19": {
 		filialX: 211,
 		filialY: 238,
 		filialName: "Göygöl filialı",
-		id: "19",
+		id: "19"
 	},
 	"20": {
 		filialX: 567,
 		filialY: 315,
 		filialName: "Hacıqabul filialı",
-		id: "20",
+		id: "20"
 	},
 	"22": {
 		filialX: 442,
 		filialY: 361,
 		filialName: "İmişli filialı",
-		id: "22",
+		id: "22"
 	},
 	"23": {
 		filialX: 459,
 		filialY: 191,
 		filialName: "İsmayıllı filialı",
-		id: "23",
+		id: "23"
 	},
 	"24": {
 		filialX: 212,
 		filialY: 221,
 		filialName: "Kəpəz filialı",
-		id: "24",
+		id: "24"
 	},
 	"25": {
 		filialX: 489,
 		filialY: 550,
 		filialName: "Lerik filialı",
-		id: "25",
+		id: "25"
 	},
 	"26": {
 		filialX: 528,
 		filialY: 505,
 		filialName: "Masallı filialı",
-		id: "26",
+		id: "26"
 	},
 	"27": {
 		filialX: 532,
 		filialY: 512,
 		filialName: "Masallı kart mərkəzi",
-		id: "27",
+		id: "27"
 	},
 	"31": {
 		filialX: 362,
 		filialY: 148,
 		filialName: "Oğuz filialı",
-		id: "31",
+		id: "31"
 	},
 	"34": {
 		filialX: 295,
 		filialY: 87,
 		filialName: "Qax filialı",
-		id: "34",
+		id: "34"
 	},
 	"35": {
 		filialX: 75,
 		filialY: 126,
 		filialName: "Qazax filialı",
-		id: "35",
+		id: "35"
 	},
 	"36": {
 		filialX: 494,
 		filialY: 114,
 		filialName: "Quba filialı",
-		id: "36",
+		id: "36"
 	},
 	"37": {
 		filialX: 478,
 		filialY: 79,
 		filialName: "Qusar filialı",
-		id: "37",
+		id: "37"
 	},
 	"38": {
 		filialX: 490,
 		filialY: 355,
 		filialName: "Saatlı filialı",
-		id: "38",
+		id: "38"
 	},
 	"39": {
 		filialX: 515,
 		filialY: 333,
 		filialName: "Sabirabad filialı",
-		id: "39",
+		id: "39"
 	},
 	"41": {
 		filialX: 582,
 		filialY: 390,
 		filialName: "Salyan kart mərkəzi",
-		id: "41",
+		id: "41"
 	},
 	"42": {
 		filialX: 225,
 		filialY: 177,
 		filialName: "Samux filialı",
-		id: "42",
+		id: "42"
 	},
 	"44": {
 		filialX: 560,
 		filialY: 116,
 		filialName: "Şabran filialı",
-		id: "44",
+		id: "44"
 	},
 	"45": {
 		filialX: 519,
 		filialY: 200,
 		filialName: "Şamaxı filialı",
-		id: "45",
+		id: "45"
 	},
 	"46": {
 		filialX: 326,
 		filialY: 130,
 		filialName: "Şəki kart mərkəzi",
-		id: "46",
+		id: "46"
 	},
 	"48": {
 		filialX: 558,
 		filialY: 342,
 		filialName: "Şirvan filialı",
-		id: "48",
+		id: "48"
 	},
 	"50": {
 		filialX: 581,
 		filialY: 149,
 		filialName: "Siyəzən filialı",
-		id: "50",
+		id: "50"
 	},
 	"51": {
 		filialX: 656,
 		filialY: 230,
 		filialName: "Sumqayıt filialı",
-		id: "51",
+		id: "51"
 	},
 	"52": {
 		filialX: 654,
 		filialY: 234,
 		filialName: "Sumqayıt kart mərkəzi",
-		id: "52",
+		id: "52"
 	},
 	"54": {
 		filialX: 126,
 		filialY: 154,
 		filialName: "Tovuz filialı",
-		id: "54",
+		id: "54"
 	},
 	"55": {
 		filialX: 542,
 		filialY: 77,
 		filialName: "Xaçmaz filialı",
-		id: "55",
+		id: "55"
 	},
 	"58": {
 		filialX: 600,
 		filialY: 202,
 		filialName: "Xızı filialı",
-		id: "58",
+		id: "58"
 	},
 	"59": {
 		filialX: 465,
 		filialY: 518,
 		filialName: "Yardımlı filialı",
-		id: "59",
+		id: "59"
 	},
 	"61": {
 		filialX: 260,
 		filialY: 58,
 		filialName: "Zaqatala filialı",
-		id: "61",
+		id: "61"
 	},
 	"62": {
 		filialX: 550,
 		filialY: 550,
 		filialName: "Lənkəran filialı",
-		id: "62",
+		id: "62"
 	},
 	"63": {
 		filialX: 272,
 		filialY: 254,
 		filialName: "Naftalan filialı",
-		id: "63",
+		id: "63"
 	},
 	"64": {
 		filialX: 600,
 		filialY: 444,
 		filialName: "Neftçala filialı",
-		id: "64",
+		id: "64"
 	},
 	"67": {
 		filialX: 411,
 		filialY: 160,
 		filialName: "Qəbələ filialı",
-		id: "67",
+		id: "67"
 	},
 	"68": {
 		filialX: 170,
 		filialY: 247,
 		filialName: "Daşkəsən filialı",
-		id: "68",
+		id: "68"
 	},
 	"69": {
 		filialX: 320,
 		filialY: 229,
 		filialName: "Yevlax filialı",
-		id: "69",
+		id: "69"
 	},
 	"70": {
 		filialX: 360,
 		filialY: 327,
 		filialName: "Laçın filialı",
-		id: "70",
+		id: "70"
 	},
 	"71": {
 		filialX: 644,
 		filialY: 228,
 		filialName: "Qubadlı filialı",
-		id: "71",
+		id: "71"
 	},
 	"73": {
 		filialX: 410,
 		filialY: 232,
 		filialName: "Göyçay filialı",
-		id: "73",
+		id: "73"
 	},
 	"75": {
 		filialX: 183,
 		filialY: 183,
 		filialName: "Şəmkir filialı",
-		id: "75",
+		id: "75"
 	},
 	"77": {
 		filialX: 305,
 		filialY: 205,
 		filialName: "Mingəçevir filialı",
-		id: "77",
+		id: "77"
 	},
 	"78": {
 		filialX: 413,
 		filialY: 302,
 		filialName: "Zərdab filialı",
-		id: "78",
+		id: "78"
 	},
 	"80": {
 		filialX: 131,
 		filialY: 245,
 		filialName: "Gədəbəy filialı",
-		id: "80",
+		id: "80"
 	},
 	"81": {
 		filialX: 364,
 		filialY: 407,
 		filialName: "Füzuli filialı",
-		id: "81",
+		id: "81"
 	},
 	"82": {
 		filialX: 406,
 		filialY: 262,
 		filialName: "Ucar filialı",
-		id: "82",
+		id: "82"
 	},
 	"83": {
 		filialX: 391,
 		filialY: 377,
 		filialName: "Beyləqan filialı",
-		id: "83",
+		id: "83"
 	},
 	"84": {
 		filialX: 360,
 		filialY: 230,
 		filialName: "Ağdaş filialı",
-		id: "84",
+		id: "84"
 	},
 	"85": {
 		filialX: 456,
 		filialY: 282,
 		filialName: "Kürdəmir filialı",
-		id: "85",
+		id: "85"
 	},
 	"86": {
 		filialX: 485,
 		filialY: 227,
 		filialName: "Ağsu filialı",
-		id: "86",
+		id: "86"
 	},
 	"88": {
 		filialX: 349,
 		filialY: 333,
 		filialName: "Ağcəbədi filialı",
-		id: "88",
+		id: "88"
 	},
 	"89": {
 		filialX: 296,
 		filialY: 278,
 		filialName: "Tərtər filialı",
-		id: "89",
+		id: "89"
 	},
 	"97": {
 		filialX: 560,
 		filialY: 229,
 		filialName: "Qobustan filialı",
-		id: "97",
+		id: "97"
 	},
 	"98": {
 		filialX: 508,
 		filialY: 108,
 		filialName: "Şimal filialı",
-		id: "98",
+		id: "98"
 	},
 	"102": {
 		filialX: 206,
 		filialY: 215,
 		filialName: "Gəncə kart mərkəzi",
-		id: "102",
+		id: "102"
 	},
 	"107": {
 		filialX: 92,
 		filialY: 478,
 		filialName: "Babək filialı",
-		id: "107",
+		id: "107"
 	},
 	"108": {
 		filialX: 120,
 		filialY: 503,
 		filialName: "Culfa filialı",
-		id: "108",
+		id: "108"
 	},
 	"109": {
 		filialX: 32,
 		filialY: 415,
 		filialName: "Şərur filialı",
-		id: "109",
+		id: "109"
 	},
 	"110": {
 		filialX: 56,
 		filialY: 442,
 		filialName: "Kəngərli filialı",
-		id: "110",
+		id: "110"
 	},
 	"111": {
 		filialX: 13,
 		filialY: 384,
 		filialName: "Sədərək filialı",
-		id: "111",
+		id: "111"
 	},
 	"112": {
 		filialX: 112,
 		filialY: 431,
 		filialName: "Şahbuz filialı",
-		id: "112",
+		id: "112"
 	},
 	"113": {
 		filialX: 87,
 		filialY: 466,
 		filialName: "Naxçıvan filialı",
-		id: "113",
+		id: "113"
 	},
 	"114": {
 		filialX: 536,
 		filialY: 505,
 		filialName: "Cənub filialı",
-		id: "114",
+		id: "114"
 	},
 	"115": {
 		filialX: 167,
 		filialY: 519,
 		filialName: "Ordubad filialı",
-		id: "115",
-	},
+		id: "115"
+	}
 };
 
 const BAKU_FILIALS = {
@@ -453,194 +453,194 @@ const BAKU_FILIALS = {
 		filialX: 313,
 		filialY: 184,
 		filialName: "28 May filialı",
-		id: "1",
+		id: "1"
 	},
 	"2": {
 		filialX: 186,
 		filialY: 140,
 		filialName: "Abşeron filialı",
-		id: "2",
+		id: "2"
 	},
 	"4": {
 		filialX: 413,
 		filialY: 138,
 		filialName: "Əhmədli filialı",
-		id: "4",
+		id: "4"
 	},
 	"10": {
 		filialX: 255,
 		filialY: 150,
 		filialName: "Binəqədi filialı",
-		id: "10",
+		id: "10"
 	},
 	"13": {
 		filialX: 277,
 		filialY: 199,
 		filialName: "Cəfər Cabbarlı filialı",
-		id: "13",
+		id: "13"
 	},
 	"16": {
 		filialX: 294,
 		filialY: 157,
 		filialName: "Gənclik filialı",
-		id: "16",
+		id: "16"
 	},
 	"17": {
 		filialX: 301,
 		filialY: 166,
 		filialName: "Gənclik Mall filialı",
-		id: "17",
+		id: "17"
 	},
 	"21": {
 		filialX: 263,
 		filialY: 217,
 		filialName: "İçərişəhər filialı",
-		id: "21",
+		id: "21"
 	},
 	"28": {
 		filialX: 294,
 		filialY: 189,
 		filialName: "Mərkəz filialı",
-		id: "28",
+		id: "28"
 	},
 	"29": {
 		filialX: 334,
 		filialY: 153,
 		filialName: "Nərimanov filialı",
-		id: "29",
+		id: "29"
 	},
 	"30": {
 		filialX: 397,
 		filialY: 128,
 		filialName: "Nizami filialı",
-		id: "30",
+		id: "30"
 	},
 	"32": {
 		filialX: 147,
 		filialY: 257,
 		filialName: "Qaradağ filialı",
-		id: "32",
+		id: "32"
 	},
 	"33": {
 		filialX: 356,
 		filialY: 113,
 		filialName: "Qara Qarayev filialı",
-		id: "33",
+		id: "33"
 	},
 	"40": {
 		filialX: 427,
 		filialY: 98,
 		filialName: "Sabunçu filialı",
-		id: "40",
+		id: "40"
 	},
 	"43": {
 		filialX: 298,
 		filialY: 213,
 		filialName: "Səbail filialı",
-		id: "43",
+		id: "43"
 	},
 	"49": {
 		filialX: 287,
 		filialY: 133,
 		filialName: "Şuşa filialı",
-		id: "49",
+		id: "49"
 	},
 	"53": {
 		filialX: 461,
 		filialY: 116,
 		filialName: "Suraxanı filialı",
-		id: "53",
+		id: "53"
 	},
 	"56": {
 		filialX: 344,
 		filialY: 180,
 		filialName: "Xətai filialı",
-		id: "56",
+		id: "56"
 	},
 	"57": {
 		filialX: 559,
 		filialY: 81,
 		filialName: "Xəzər filialı",
-		id: "57",
+		id: "57"
 	},
 	"60": {
 		filialX: 230,
 		filialY: 195,
 		filialName: "Yasamal filialı",
-		id: "60",
+		id: "60"
 	},
 	"65": {
 		filialX: 281,
 		filialY: 176,
 		filialName: "Nəsimi filialı",
-		id: "65",
+		id: "65"
 	},
 	"74": {
 		filialX: 415,
 		filialY: 168,
 		filialName: "Həzi Aslanov filialı",
-		id: "74",
+		id: "74"
 	},
 	"79": {
 		filialX: 428,
 		filialY: 121,
 		filialName: "Bakıxanov filialı",
-		id: "79",
+		id: "79"
 	},
 	"87": {
 		filialX: 409,
 		filialY: 157,
 		filialName: "Bravo 1 filialı",
-		id: "87",
+		id: "87"
 	},
 	"91": {
 		filialX: 314,
 		filialY: 154,
 		filialName: "Nərimanov kart mərkəzi filialı",
-		id: "91",
+		id: "91"
 	},
 	"92": {
 		filialX: 163,
 		filialY: 282,
 		filialName: "Lökbatan şöbəsi",
-		id: "92",
+		id: "92"
 	},
 	"99": {
 		filialX: 261,
 		filialY: 166,
 		filialName: "Bravo 2 filialı",
-		id: "99",
+		id: "99"
 	},
 	"101": {
 		filialX: 310,
 		filialY: 215,
 		filialName: "Sahil filialı",
-		id: "101",
+		id: "101"
 	},
 	"103": {
 		filialX: 380,
 		filialY: 116,
 		filialName: "Neftçilər kart mərkəzi filialı",
-		id: "103",
+		id: "103"
 	},
 	"104": {
 		filialX: 215,
 		filialY: 231,
 		filialName: "Badamdar filialı",
-		id: "104",
+		id: "104"
 	},
 	"105": {
 		filialX: 337,
 		filialY: 117,
 		filialName: "Bravo 3 filialı",
-		id: "105",
+		id: "105"
 	},
 	"116": {
 		filialX: 186,
 		filialY: 260,
 		filialName: "Ticarət filialı",
-		id: "116",
-	},
+		id: "116"
+	}
 };
 
 let regValue,
@@ -669,20 +669,37 @@ String.prototype.toTime = function() {
 };
 
 const INTERVAL = "5000"; // Bu refresh vaxtinin ms-nen olan reqemidi
-const BASE_URL = "http://192.168.1.69:8080/"; // buda ip
-const GET_MAP_DATA = "QmaticMap/getMapData";
-const MAP_DATA_CUSTOM_WAIT = "QmaticMap/getMapDataCusWait";
-const GET_MAP_DATA_OPEN_POINT = "QmaticMap/getMapDataOpenPoint";
-const GET_MAP_MAX_WEIT_DATA = "QmaticMap/getMapMaxWaitData";
-const QMATIC_MAP_GET_MAP_AVE_WAIT_DATA = "QmaticMap/getMapAveWaitData";
-const QMATIC_MAP_QET_MAP_NO_SHOW_DATA = "QmaticMap/getMapNoShowData";
-const QMATIC_MAP_GET_MAP_REMOVED_DATA = "QmaticMap/getMapRemovedData";
-const QMATIC_MAP_GET_MAP_SERV_CUSTOM_DATA = "QmaticMap/getMapServCusData";
-const QMATIC_MAP_GET_MAP_AVE_SERV_TIME_DATA = "QmaticMap/getMapAveServTimeData";
-const QMATIC_MAP_GET_MAP_CLOSE_POINT_DATA = "QmaticMap/getMapClosePointData";
-const QMATIC_GET_TIMES = "QmaticMap/getMapTimeData";
-const QMATIC_GET_PERCENT = "QmaticMap/getMapPercentData";
-const QMATIC_VALYUTA = "QmaticMap/getMapAveValyutaWaitData";
+const BASE_URL = "http://192.168.1.69:8080/QmaticMap/"; // buda ip
+const GET_MAP_DATA = "getMapData";
+const MAP_DATA_CUSTOM_WAIT = "getMapDataCusWait";
+const GET_MAP_DATA_OPEN_POINT = "getMapDataOpenPoint";
+const GET_MAP_MAX_WEIT_DATA = "getMapMaxWaitData";
+const QMATIC_MAP_GET_MAP_AVE_WAIT_DATA = "getMapAveWaitData";
+const QMATIC_MAP_QET_MAP_NO_SHOW_DATA = "getMapNoShowData";
+const QMATIC_MAP_GET_MAP_REMOVED_DATA = "getMapRemovedData";
+const QMATIC_MAP_GET_MAP_SERV_CUSTOM_DATA = "getMapServCusData";
+const QMATIC_MAP_GET_MAP_AVE_SERV_TIME_DATA = "getMapAveServTimeData";
+const QMATIC_MAP_GET_MAP_CLOSE_POINT_DATA = "getMapClosePointData";
+const QMATIC_GET_TIMES = "getMapTimeData";
+const QMATIC_GET_PERCENT = "getMapPercentData";
+const QMATIC_VALYUTA = "getMapAveValyutaWaitData";
+const GET_TOTAL_BY_PAGINATION = "getTotalBranchByPagination";
+
+const getTotalBranches = async () => {
+	const response = await fetch(BASE_URL + GET_TOTAL_BY_PAGINATION, {
+		method: "POST",
+		headers: {
+			"Content-type": "application/json"
+		},
+		body: JSON.stringify({
+			start: 1,
+			count: 300,
+			name: "%%"
+		})
+	});
+	const data = await response.json();
+	return data;
+};
 
 const getMapTimeData = async () => {
 	const response = await fetch(BASE_URL + QMATIC_GET_TIMES);
@@ -756,7 +773,7 @@ const getMapServCusData = async () => {
 
 const getMapAveServTimeData = async () => {
 	const response = await fetch(
-		BASE_URL + QMATIC_MAP_GET_MAP_AVE_SERV_TIME_DATA,
+		BASE_URL + QMATIC_MAP_GET_MAP_AVE_SERV_TIME_DATA
 	);
 	let data = await response.json();
 	return data;
@@ -789,7 +806,7 @@ const setCirclesTime = (key, value) => {
 	if (value.averageWaitingTime !== undefined) {
 		circleTime.setAttribute(
 			"data-awg-text",
-			String(value.averageWaitingTime).toTime(),
+			String(value.averageWaitingTime).toTime()
 		);
 		let color = "green";
 		if (value.averageWaitingTime > 600 && value.averageWaitingTime <= 900) {
@@ -843,7 +860,7 @@ const setSirclesTimeBaku = (key, value) => {
 	if (value.averageWaitingTime !== undefined) {
 		circleTime.setAttribute(
 			"data-awg-text",
-			String(value.averageWaitingTime).toTime(),
+			String(value.averageWaitingTime).toTime()
 		);
 		let color = "green";
 		if (value.averageWaitingTime > 600 && value.averageWaitingTime <= 900) {
@@ -899,8 +916,6 @@ const setSirclesPercentBaku = (key, value) => {
 };
 
 const drowBranchesTime = branches => {
-	console.log("branches", branches);
-	console.log("regValue", regValue);
 	for (let [key, value] of Object.entries(branches)) {
 		if (value.filialY !== undefined && value.filialX !== undefined) {
 			if (inputLength > 2) {
@@ -1029,6 +1044,14 @@ const getAllData = () => {
 			.show("slow");
 		document.getElementById("removed").innerText = resp.removed;
 	});
+	getTotalBranches()
+		.then(response => {
+			const sum = response.reduce((accum, value) => {
+				return accum + value.freeUsers;
+			}, 0);
+			document.getElementById("free-users").innerHTML = sum;
+		})
+		.catch(err => console.error(err));
 	if (whichShown === "time") {
 		getMapTimeData()
 			.then(resp => {
@@ -1036,13 +1059,13 @@ const getAllData = () => {
 					if (!!ALL_FILIALS[resp[item].id]) {
 						responseAllFilials[resp[item].id] = {
 							...resp[item],
-							...ALL_FILIALS[resp[item].id],
+							...ALL_FILIALS[resp[item].id]
 						};
 					}
 					if (!!BAKU_FILIALS[resp[item].id]) {
 						responseBakuFiliasl[resp[item].id] = {
 							...resp[item],
-							...BAKU_FILIALS[resp[item].id],
+							...BAKU_FILIALS[resp[item].id]
 						};
 					}
 				});
@@ -1053,7 +1076,7 @@ const getAllData = () => {
 				bakuTimeColor = "#CBE0BA";
 				drowBranchesTimeBaku(responseBakuFiliasl);
 				document.getElementsByClassName(
-					"baki-time",
+					"baki-time"
 				)[0].style.fill = bakuTimeColor;
 				setTimeout(getAllData, INTERVAL);
 			});
@@ -1064,13 +1087,13 @@ const getAllData = () => {
 					if (!!ALL_FILIALS[resp[item].id]) {
 						responseAllFilials[resp[item].id] = {
 							...resp[item],
-							...ALL_FILIALS[resp[item].id],
+							...ALL_FILIALS[resp[item].id]
 						};
 					}
 					if (!!BAKU_FILIALS[resp[item].id]) {
 						responseBakuFiliasl[resp[item].id] = {
 							...resp[item],
-							...BAKU_FILIALS[resp[item].id],
+							...BAKU_FILIALS[resp[item].id]
 						};
 					}
 				});
@@ -1081,7 +1104,7 @@ const getAllData = () => {
 				bakuPercentColor = "#CBE0BA";
 				drowBranchesPercentBaku(responseBakuFiliasl);
 				document.getElementsByClassName(
-					"baki-percent",
+					"baki-percent"
 				)[0].style.fill = bakuPercentColor;
 				setTimeout(getAllData, INTERVAL);
 			});
@@ -1098,7 +1121,9 @@ const inputElement = document.getElementById("search-td");
 const searchList = document.getElementById("search-list");
 
 getMapPercentData().then(response => {
-	drowSearchItems(response);
+	console.log("response", response);
+	let newArr = [...new Set(response)];
+	drowSearchsItems(response);
 });
 
 function setActionsForListItem() {
@@ -1121,32 +1146,48 @@ function setActionsForListItem() {
 	});
 }
 
-function drowSearchItems(data) {
-	let items = ``;
+function drowSearchsItems(data) {
+	let items = ``,
+		counterItems = ``,
+		departmentItems = ``;
 
 	data.forEach(dataItem => {
-		let item = ``;
+		let item = ``,
+			counterItem = ``,
+			departmentItem = ``;
 		item += `<div class="list-group-item" data-id="${dataItem.id}" data-name="${dataItem.name}">
 					<span>${dataItem.name}</span>
 				</div>`;
+		counterItem += `<a class="dropdown-item counters-item" href="/counters/${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
+		departmentItem += `<a class="dropdown-item  departments-item" href="/departments/${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
 		items += item;
+		counterItems += counterItem;
+		departmentItems += departmentItem;
 	});
 	document.getElementById("search-list").innerHTML = items;
+	document.getElementById("counter-list").innerHTML = counterItems;
+	document.getElementById("department-list").innerHTML = departmentItems;
 	setActionsForListItem();
 }
 
-function showNeedListItem(value) {
+function showNeedListItem(value, searchType) {
 	searchList.style.transform = "scaleY(1)";
-	let listItems = document.getElementsByClassName("list-group-item");
+	let listItems;
+	if (searchType == "counters") {
+		listItems = document.getElementsByClassName("counters-item");
+	} else if (searchType == "departments") {
+		listItems = document.getElementsByClassName("departments-item");
+	} else {
+		listItems = document.getElementsByClassName("list-group-item");
+	}
+
 	var reg = new RegExp(value, "i");
 	Object.keys(listItems).forEach(item => {
 		let name = listItems[item].getAttribute("data-name");
 		if (reg.test(name)) {
 			listItems[item].style.display = "block";
-			listItems[item].style.transform = "scaleY(1)";
 		} else {
 			listItems[item].style.display = "none";
-			listItems[item].style.transform = "scaleY(0)";
 		}
 	});
 }
@@ -1154,6 +1195,13 @@ function showNeedListItem(value) {
 /***
  * cusotm search
  */
+
+document.onclick = function() {
+	searchList.style.transform = "scaleY(0)";
+};
+
+const COUNTER_INPUT = document.getElementById("counter-input");
+const DEPARTMENT_INPUT = document.getElementById("department-input");
 
 $(function() {
 	$("#search").on("input", function(e) {
@@ -1173,8 +1221,41 @@ $(function() {
 			}
 		}
 	});
-});
 
-document.onclick = function() {
-	searchList.style.transform = "scaleY(0)";
-};
+	COUNTER_INPUT.onfocusin = function() {
+		$(this)
+			.parent()
+			.siblings("#counter-list")
+			.show();
+	};
+
+	COUNTER_INPUT.onfocusout = function() {
+		$(this)
+			.parent()
+			.siblings("#counter-list")
+			.hide();
+	};
+	DEPARTMENT_INPUT.onfocusin = function() {
+		console.log("$ -> this", this);
+		$(this)
+			.parent()
+			.siblings("#department-list")
+			.show();
+	};
+
+	DEPARTMENT_INPUT.onfocusout = function() {
+		$(this)
+			.parent()
+			.siblings("#department-list")
+			.hide();
+	};
+
+	$("#counter-input").on("input", function(e) {
+		const VAL = this.value;
+		showNeedListItem(VAL, "counters");
+	});
+	$("#department-input").on("input", function(e) {
+		const VAL = this.value;
+		showNeedListItem(VAL, "departments");
+	});
+});
