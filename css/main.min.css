@@ -709,16 +709,17 @@ keyframessvg
 	overflow-y: auto;
 	z-index: 9009;
 	box-shadow: 0px 6px 20px 1px #eaeef3;
-	transform: scaleY(0);
+	/* transform: scaleY(0); */
 	transform-origin: top;
 	transition: 0.3s;
 	border-radius: 6px;
 }
 .list-group-item {
-	transform: scaleY(0);
+	/* transform: scaleY(0); */
 	transform-origin: center;
 	transition: 0.3s;
 	display: none;
+	border: none;
 }
 
 .search-list-item {
@@ -732,7 +733,8 @@ path {
 	stroke: rgb(153, 153, 153);
 }
 
-#counter-list {
-	max-height: 30vh;
+#counter-list,
+#department-list {
+	max-height: 20vh;
 	overflow-y: auto;
 }

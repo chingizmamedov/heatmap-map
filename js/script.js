@@ -648,7 +648,8 @@ let regValue,
 	responseAllFilials = {},
 	responseBakuFiliasl = {},
 	bakuTimeColor = "#CBE0BA",
-	bakuPercentColor = "#CBE0BA";
+	bakuPercentColor = "#CBE0BA",
+	averageWaitingTimeGlobal = 0;
 
 String.prototype.toTime = function() {
 	var sec_num = parseInt(this, 10); // don't forget the second param
@@ -858,10 +859,12 @@ const setSirclesTimeBaku = (key, value) => {
 	circleTime.setAttribute("data-type", "time");
 	circleTime.setAttributeNS(null, "cx", value.filialX);
 	if (value.averageWaitingTime !== undefined) {
+		console.log("averageWaitingTime -> value", value.averageWaitingTime);
 		circleTime.setAttribute(
 			"data-awg-text",
 			String(value.averageWaitingTime).toTime()
 		);
+		averageWaitingTimeGlobal += value.averageWaitingTime;
 		let color = "green";
 		if (value.averageWaitingTime > 600 && value.averageWaitingTime <= 900) {
 			color = "yellow";
@@ -931,6 +934,8 @@ const drowBranchesTime = branches => {
 };
 
 const drowBranchesTimeBaku = branches => {
+	averageWaitingTimeGlobal = 0;
+
 	for (let [key, value] of Object.entries(branches)) {
 		if (value.filialY !== undefined && value.filialX !== undefined) {
 			if (inputLength > 2) {
@@ -942,6 +947,14 @@ const drowBranchesTimeBaku = branches => {
 			}
 		}
 	}
+	console.log(
+		"averageWaitingTimeGlobal",
+		String(averageWaitingTimeGlobal).toTime()
+	);
+	let averageWaitingTimeGlobalDisplay = String(
+		averageWaitingTimeGlobal
+	).toTime();
+	svgTimeBaku.setAttribute("data-awg-text", averageWaitingTimeGlobalDisplay);
 	document.getElementById("sgs-time").classList.remove("sgs-animation");
 };
 
@@ -1190,6 +1203,28 @@ function showNeedListItem(value, searchType) {
 			listItems[item].style.display = "none";
 		}
 	});
+	const listBool = Object.values(listItems).some(
+		item => reg.test(item.getAttribute("data-name")) === true
+	);
+	if (searchType == "counters") {
+		listBool
+			? document
+					.getElementById("counter-list")
+					.appendChild("<span>No data find</span>")
+			: null;
+	} else if (searchType == "departments") {
+		listBool
+			? document
+					.getElementById("department-list")
+					.appendChild("<span>No data find</span>")
+			: null;
+	} else {
+		listBool
+			? document
+					.getElementById("search-list")
+					.appendChild("<span>No data find</span>")
+			: null;
+	}
 }
 
 /***

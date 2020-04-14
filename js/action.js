@@ -90,12 +90,6 @@ $(function() {
 	function setHoverData(e) {
 		if (circleHovered) {
 			if (element == e) {
-				// document.getElementById(
-				// 	"tooltip-float-time",
-				// ).innerHTML = e.getAttribute("data-awg-text");
-				// document.getElementById(
-				// 	"tooltip-float-percent",
-				// ).innerHTML = e.getAttribute("data-awg-text");
 				hoverTimer = setTimeout(() => setHoverData(e), 3000);
 			}
 		}
