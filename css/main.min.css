@@ -738,3 +738,11 @@ path {
 	max-height: 20vh;
 	overflow-y: auto;
 }
+
+.page-itemactive {
+	background: blue;
+}
+
+.no-data {
+	display: none;
+}
