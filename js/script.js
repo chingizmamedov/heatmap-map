@@ -669,7 +669,7 @@ String.prototype.toTime = function() {
 	return hours + ":" + minutes + ":" + seconds;
 };
 
-const mainLink = "/heatmap/";
+const mainLink = "/heatmap";
 const INTERVAL = "5000"; // Bu refresh vaxtinin ms-nen olan reqemidi
 const BASE_URL = "http://192.168.1.69:8080/QmaticMap/"; // buda ip
 const GET_MAP_DATA = "getMapData";
@@ -1176,8 +1176,8 @@ function drowSearchsItems(data) {
 		item += `<div class="list-group-item" data-id="${dataItem.id}" data-name="${dataItem.name}">
 					<span>${dataItem.name}</span>
 				</div>`;
-		counterItem += `<a class="dropdown-item counters-item link-item" href="${mainLink}counters/${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
-		departmentItem += `<a class="dropdown-item  departments-item link-item" href="${mainLink}departments/${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
+		counterItem += `<a class="dropdown-item counters-item link-item" href="${mainLink}/counters/${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
+		departmentItem += `<a class="dropdown-item  departments-item link-item" href="${mainLink}/departments/${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
 		items += item;
 		counterItems += counterItem;
 		departmentItems += departmentItem;
