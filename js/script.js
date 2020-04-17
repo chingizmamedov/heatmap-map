@@ -918,6 +918,33 @@ const setSirclesPercentBaku = (key, value) => {
 	svgPercentBaku.appendChild(circlePercent);
 };
 
+const setBakiTooltipDataTime = (data) => {
+	let branch = "",
+		value = "";
+
+	const arr = Object.values(data).sort(
+		(a, b) => b.averageWaitingTime - a.averageWaitingTime,
+	);
+	branch = arr[0].name;
+	value = arr[0].averageWaitingTime;
+	const BAKI = document.getElementsByClassName("baki")[0];
+	BAKI.setAttribute("data-filialname", branch);
+	let averageWaitingTimeGlobalDisplay = String(value).toTime();
+	BAKI.setAttribute("data-awg-text", averageWaitingTimeGlobalDisplay);
+};
+
+const setBakiTooltipDataPercent = (data) => {
+	let branch = "",
+		value = "";
+
+	const arr = Object.values(data).sort((a, b) => b.percent - a.percent);
+	branch = arr[0].name;
+	value = arr[0].percent;
+	const BAKI = document.getElementsByClassName("baki")[1];
+	BAKI.setAttribute("data-filialname", branch);
+	BAKI.setAttribute("data-percent-text", value);
+};
+
 const drowBranchesTime = (branches) => {
 	for (let [key, value] of Object.entries(branches)) {
 		if (value.filialY !== undefined && value.filialX !== undefined) {
@@ -1084,6 +1111,7 @@ const getAllData = () => {
 				drowBranchesTime(responseAllFilials);
 				bakuTimeColor = "#CBE0BA";
 				drowBranchesTimeBaku(responseBakuFiliasl);
+				setBakiTooltipDataTime(responseBakuFiliasl);
 				document.getElementsByClassName(
 					"baki-time",
 				)[0].style.fill = bakuTimeColor;
@@ -1110,6 +1138,8 @@ const getAllData = () => {
 			.then(() => {
 				deleteBranches();
 				drowBranchesPercent(responseAllFilials);
+				console.log("getAllData -> responseAllFilials", responseAllFilials);
+				setBakiTooltipDataPercent(responseAllFilials);
 				bakuPercentColor = "#CBE0BA";
 				drowBranchesPercentBaku(responseBakuFiliasl);
 				document.getElementsByClassName(
@@ -1136,7 +1166,6 @@ getMapPercentData().then((response) => {
 function setActionsForListItem() {
 	const listForAction = document.getElementsByClassName("list-group-item");
 	const branchesLists = document.querySelectorAll(".link-item");
-	console.log("setActionsForListItem -> branchesLists", branchesLists);
 	Object.keys(branchesLists).forEach((item) => {
 		branchesLists[item].onclick = function(e) {
 			console.log(
@@ -1176,8 +1205,8 @@ function drowSearchsItems(data) {
 		item += `<div class="list-group-item" data-id="${dataItem.id}" data-name="${dataItem.name}">
 					<span>${dataItem.name}</span>
 				</div>`;
-		counterItem += `<a class="dropdown-item counters-item link-item" href="${mainLink}/counters/${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
-		departmentItem += `<a class="dropdown-item  departments-item link-item" href="${mainLink}/departments/${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
+		counterItem += `<a class="dropdown-item counters-item link-item" href="${mainLink}/counters/?branch=${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
+		departmentItem += `<a class="dropdown-item  departments-item link-item" href="${mainLink}/departments/?branch=${dataItem.id}"  data-name="${dataItem.name}">${dataItem.name}</a>`;
 		items += item;
 		counterItems += counterItem;
 		departmentItems += departmentItem;
@@ -1239,12 +1268,16 @@ function showNeedListItem(value, searchType) {
 	setNoData(listItems, reg, searchType);
 }
 
-/***
- * cusotm search
- */
-
-document.onclick = function() {
+document.onclick = function(e) {
 	searchList.style.transform = "scaleY(0)";
+	let targetElem = e.target;
+	if (!targetElem.classList.contains("circle")) {
+		document.getElementsByClassName("btn-counters")[0].classList.remove("ts-1");
+		document
+			.getElementsByClassName("btn-department")[0]
+			.classList.remove("ts-1");
+		isClicked = false;
+	}
 };
 
 const COUNTER_INPUT = document.getElementById("counter-input");
@@ -1276,25 +1309,11 @@ $(function() {
 			.show();
 	};
 
-	COUNTER_INPUT.onfocusout = function() {
-		$(this)
-			.parent()
-			.siblings("#counter-list")
-			.hide();
-	};
-
 	DEPARTMENT_INPUT.onfocusin = function() {
 		$(this)
 			.parent()
 			.siblings("#department-list")
 			.show();
-	};
-
-	DEPARTMENT_INPUT.onfocusout = function() {
-		$(this)
-			.parent()
-			.siblings("#department-list")
-			.hide();
 	};
 
 	$("#counter-input").on("input", function(e) {
@@ -1305,5 +1324,17 @@ $(function() {
 	$("#department-input").on("input", function(e) {
 		const VAL = this.value;
 		showNeedListItem(VAL, "departments");
+	});
+
+	$.ajax({
+		url: "/rest/servicepoint/user/",
+		type: "GET",
+		success: function(data) {
+			$("#usrnm").text(data["fullName"]);
+			$(".img-circle").attr(
+				"src",
+				"assets/images/propfile/" + userName + ".jpg",
+			);
+		},
 	});
 });

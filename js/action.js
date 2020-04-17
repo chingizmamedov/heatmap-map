@@ -3,21 +3,22 @@
 let whichShown = "time",
 	circleHovered = false,
 	event,
-	element;
+	element,
+	isClicked = false;
 $(function() {
 	$(".baki-time").click(function() {
 		$(this)
 			.parent()
 			.css({
-				transform: "scale(0)"
+				transform: "scale(0)",
 			});
 		$("#map-baki-time").addClass("map-baki-shown");
 		$(".btn-back").addClass("btn-back-shown");
 		$(".map-left .map-info").css({
-			transform: "translateX(-90%) scale(.8)"
+			transform: "translateX(-90%) scale(.8)",
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(90%) scale(.8)"
+			transform: "translateX(90%) scale(.8)",
 		});
 	});
 
@@ -25,24 +26,40 @@ $(function() {
 		$(this)
 			.parent()
 			.css({
-				transform: "scale(0)"
+				transform: "scale(0)",
 			});
 		$("#map-baki-percent").addClass("map-baki-shown");
 		$(".btn-back").addClass("btn-back-shown");
 		$(".map-left .map-info").css({
-			transform: "translateX(-90%) scale(.8)"
+			transform: "translateX(-90%) scale(.8)",
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(90%) scale(.8)"
+			transform: "translateX(90%) scale(.8)",
 		});
 	});
 	const TOOLTIP = $(".tooltip-float");
+	const COUNTERS_BTN = $(".btn-counters");
+	const DEPARTMENTS_BTN = $(".btn-department");
 	$("body").on("mousemove", "#sgs-time", function(e) {
+		console.log("isClicked", isClicked);
+		if (isClicked) {
+			return;
+		}
 		TOOLTIP.css({
 			left: e.pageX,
-			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100
+			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100,
 		});
-		const checkHover = e.target.classList.contains("circle");
+		COUNTERS_BTN.css({
+			left: e.pageX - 90,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		DEPARTMENTS_BTN.css({
+			left: e.pageX + 20,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		const checkHover =
+			e.target.classList.contains("circle") ||
+			e.target.classList.contains("baki");
 		if (!checkHover) {
 			TOOLTIP.removeClass("tooltip-float-shown");
 		} else {
@@ -50,11 +67,24 @@ $(function() {
 		}
 	});
 	$("body").on("mousemove", "#sgs-percent", function(e) {
+		if (isClicked) {
+			return;
+		}
 		TOOLTIP.css({
 			left: e.pageX,
-			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100
+			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100,
 		});
-		const checkHover = e.target.classList.contains("circle");
+		COUNTERS_BTN.css({
+			left: e.pageX - 90,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		DEPARTMENTS_BTN.css({
+			left: e.pageX + 20,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		const checkHover =
+			e.target.classList.contains("circle") ||
+			e.target.classList.contains("baki");
 		if (!checkHover) {
 			TOOLTIP.removeClass("tooltip-float-shown");
 		} else {
@@ -62,9 +92,20 @@ $(function() {
 		}
 	});
 	$("body").on("mousemove", "#map-baki-percent-svg", function(e) {
+		if (isClicked) {
+			return;
+		}
 		TOOLTIP.css({
 			left: e.pageX,
-			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100
+			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100,
+		});
+		COUNTERS_BTN.css({
+			left: e.pageX - 90,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		DEPARTMENTS_BTN.css({
+			left: e.pageX + 20,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
 		});
 		const checkHover = e.target.classList.contains("circle");
 		if (!checkHover) {
@@ -74,9 +115,20 @@ $(function() {
 		}
 	});
 	$("body").on("mousemove", "#map-baki-time-svg", function(e) {
+		if (isClicked) {
+			return;
+		}
 		TOOLTIP.css({
 			left: e.pageX,
-			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100
+			top: e.pageY < 230 ? 230 - 80 : e.pageY - 100,
+		});
+		COUNTERS_BTN.css({
+			left: e.pageX - 90,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		DEPARTMENTS_BTN.css({
+			left: e.pageX + 20,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
 		});
 		const checkHover = e.target.classList.contains("circle");
 		if (!checkHover) {
@@ -95,19 +147,19 @@ $(function() {
 		}
 	}
 
-	const setPercentTooltipColor = percent => {
+	const setPercentTooltipColor = (percent) => {
 		if (percent < 10) {
-			TOOLTIP.style.backgroundColor = "#5aaf2b";
+			TOOLTIP.css("background", "#5aaf2b");
 		} else if (percent >= 10 && percent <= 15) {
-			TOOLTIP.style.backgroundColor = "#f8c43d";
+			TOOLTIP.css("background", "#f8c43d");
 		} else if (percent >= 15 && percent <= 25) {
-			TOOLTIP.style.backgroundColor = "#ef874c";
+			TOOLTIP.css("background", "#ef874c");
 		} else if (percent >= 25) {
-			TOOLTIP.style.backgroundColor = "#e43e3d";
+			TOOLTIP.css("background", "#e43e3d");
 		}
 	};
 
-	const setTImeTooltipColor = time => {
+	const setTImeTooltipColor = (time) => {
 		if (time > 600 && time <= 900) {
 			TOOLTIP.css("background", "#f8c43d");
 		} else if (time > 900 && time <= 1200) {
@@ -120,6 +172,9 @@ $(function() {
 	};
 
 	$(".map-wrap").on("mouseover", ".circle", function(e) {
+		if (isClicked) {
+			return;
+		}
 		TOOLTIP.addClass("tooltip-float-shown");
 		$("#tooltip-float-filname").text($(this).attr("data-filialname"));
 		circleHovered = true;
@@ -139,14 +194,42 @@ $(function() {
 			document.getElementById("tooltip-float-percent").innerHTML =
 				event.getAttribute("data-percent-text") + " %";
 			document.getElementById("tooltip-float-time").innerHTML = "";
-			let colorTooltip = "";
 			let percentTooltip = event.getAttribute("data-percent-text");
+			percentTooltip = parseInt(percentTooltip);
 			setPercentTooltipColor(percentTooltip);
 		}
 
 		hoverTimer = setTimeout(() => setHoverData(event), 1000);
 	});
+	$(".map-wrap").on("mouseover", ".baki", function(e) {
+		if (isClicked) {
+			return;
+		}
+		TOOLTIP.addClass("tooltip-float-shown");
+		$("#tooltip-float-filname").text($(this).attr("data-filialname"));
+		circleHovered = true;
+		event = e.target;
+		element = e.target;
+		let circleType = event.getAttribute("data-type");
+		let color = $(this).css("fill");
+		console.log("color", color);
+		TOOLTIP.css("background", color);
+		if (whichShown === "time") {
+			const data = event.getAttribute("data-awg-text");
+			document.getElementById("tooltip-float-percent").innerHTML = "";
+			document.getElementById("tooltip-float-time").innerHTML = data;
+			let time = data.split(":");
+			let sec =
+				parseInt(time[0] * 360) + parseInt(time[1] * 60) + parseInt(time[2]);
+		} else {
+			let percent = event.getAttribute("data-percent-text");
+			percent = percent !== null ? percent + "%" : "Data is calculate";
+			document.getElementById("tooltip-float-percent").innerHTML = percent;
+			document.getElementById("tooltip-float-time").innerHTML = "";
+		}
 
+		hoverTimer = setTimeout(() => setHoverData(event), 1000);
+	});
 	$(".map-wrap").on("mouseout", ".circle", function() {
 		TOOLTIP.removeClass("tooltip-float-shown");
 		clearTimeout(hoverTimer);
@@ -156,20 +239,20 @@ $(function() {
 	$(".btn-back").click(function() {
 		if (whichShown == "time") {
 			$("#sgs-time").css({
-				transform: "scale(1)"
+				transform: "scale(1)",
 			});
 		} else {
 			$("#sgs-percent").css({
-				transform: "scale(1)"
+				transform: "scale(1)",
 			});
 		}
 		$(".map-baki").removeClass("map-baki-shown");
 		$(".btn-back").removeClass("btn-back-shown");
 		$(".map-left .map-info").css({
-			transform: "translateX(0) scale(1)"
+			transform: "translateX(0) scale(1)",
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(0) scale(1)"
+			transform: "translateX(0) scale(1)",
 		});
 	});
 	$("#tab-time").click(function() {
@@ -187,10 +270,10 @@ $(function() {
 		$("#sgs-time").css("transform", "scale(1)");
 		$("#map-time").removeClass("d-none");
 		$(".map-left .map-info").css({
-			transform: "translateX(0) scale(1)"
+			transform: "translateX(0) scale(1)",
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(0) scale(1)"
+			transform: "translateX(0) scale(1)",
 		});
 		$(".btn-back").removeClass("btn-back-shown");
 	});
@@ -209,16 +292,21 @@ $(function() {
 		$("#map-time").removeClass("d-flex");
 		$("#map-time").addClass("d-none");
 		$(".map-left .map-info").css({
-			transform: "translateX(0) scale(1)"
+			transform: "translateX(0) scale(1)",
 		});
 		$(".map-right .map-info").css({
-			transform: "translateX(0) scale(1)"
+			transform: "translateX(0) scale(1)",
 		});
 		$(".btn-back").removeClass("btn-back-shown");
 	});
 
 	$(document).on("click", ".circle", function() {
 		const ID = $(this).attr("data-id");
-		window.open(`/heatmap/department/?branch=${ID}`, "_blank");
+		COUNTERS_BTN.attr("href", `/heatmap/department/?branch=${ID}`);
+		DEPARTMENTS_BTN.attr("href", `/heatmap/department/?branch=${ID}`);
+		COUNTERS_BTN.addClass("ts-1");
+		DEPARTMENTS_BTN.addClass("ts-1");
+		TOOLTIP.removeClass("tooltip-float-shown");
+		isClicked = true;
 	});
 });
