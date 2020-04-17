@@ -9,9 +9,7 @@ $(function() {
 	$(".baki-time").click(function() {
 		$(this)
 			.parent()
-			.css({
-				transform: "scale(0)",
-			});
+			.addClass("map-hide");
 		$("#map-baki-time").addClass("map-baki-shown");
 		$(".btn-back").addClass("btn-back-shown");
 		$(".map-left .map-info").css({
@@ -25,9 +23,7 @@ $(function() {
 	$(".baki-percent").click(function() {
 		$(this)
 			.parent()
-			.css({
-				transform: "scale(0)",
-			});
+			.addClass("map-hide");
 		$("#map-baki-percent").addClass("map-baki-shown");
 		$(".btn-back").addClass("btn-back-shown");
 		$(".map-left .map-info").css({
@@ -238,13 +234,9 @@ $(function() {
 
 	$(".btn-back").click(function() {
 		if (whichShown == "time") {
-			$("#sgs-time").css({
-				transform: "scale(1)",
-			});
+			$("#sgs-time").removeClass("map-hide");
 		} else {
-			$("#sgs-percent").css({
-				transform: "scale(1)",
-			});
+			$("#sgs-percent").removeClass("map-hide");
 		}
 		$(".map-baki").removeClass("map-baki-shown");
 		$(".btn-back").removeClass("btn-back-shown");
@@ -267,8 +259,8 @@ $(function() {
 		$("#map-percent").removeClass("d-flex");
 		$("#map-percent").addClass("d-none");
 		$("#map-time").addClass("d-flex");
-		$("#sgs-time").css("transform", "scale(1)");
 		$("#map-time").removeClass("d-none");
+		$("#sgs-time").removeClass("map-hide");
 		$(".map-left .map-info").css({
 			transform: "translateX(0) scale(1)",
 		});
@@ -288,7 +280,7 @@ $(function() {
 		whichShown = "percent";
 		$("#map-percent").addClass("d-flex");
 		$("#map-percent").removeClass("d-none");
-		$("#sgs-percent").css("transform", "scale(1)");
+		$("#sgs-percent").removeClass("map-hide");
 		$("#map-time").removeClass("d-flex");
 		$("#map-time").addClass("d-none");
 		$(".map-left .map-info").css({

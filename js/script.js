@@ -1168,6 +1168,8 @@ function setActionsForListItem() {
 	const branchesLists = document.querySelectorAll(".link-item");
 	Object.keys(branchesLists).forEach((item) => {
 		branchesLists[item].onclick = function(e) {
+			COUNTER_INPUT.value = "";
+			DEPARTMENT_INPUT.value = "";
 			console.log(
 				"branchesLists[item].onclick -> e.event.target",
 				e.event.target,
@@ -1180,7 +1182,10 @@ function setActionsForListItem() {
 			var reg = new RegExp(inputValue, "i");
 			regValue = reg;
 			inputLength = inputValue.length;
-
+			document.getElementsByClassName("ion-android-search")[0].style.display =
+				"none";
+			document.getElementsByClassName("icon-close")[0].style.display = "block";
+			isSearch = true;
 			deleteBranches();
 			if (whichShown === "time") {
 				drowBranchesTime(responseAllFilials);
@@ -1239,7 +1244,7 @@ const setNoData = (list, regExp, searchType) => {
 	} else {
 		!listBool
 			? (document
-					.getElementById("department-list")
+					.getElementById("search-list")
 					.querySelector(".no-data").style.display = "block")
 			: null;
 	}
@@ -1284,9 +1289,28 @@ const COUNTER_INPUT = document.getElementById("counter-input");
 const DEPARTMENT_INPUT = document.getElementById("department-input");
 
 $(function() {
+	$(".icon-close").click(function() {
+		$(this).hide();
+		$(".ion-android-search").show();
+		$("#search").val("");
+		var reg = new RegExp("", "i");
+		regValue = reg;
+		searchList.style.transform = "scaleY(0)";
+		deleteBranches();
+		if (whichShown === "time") {
+			drowBranchesTime(responseAllFilials);
+			drowBranchesTimeBaku(responseBakuFiliasl);
+		} else {
+			drowBranchesPercent(responseAllFilials);
+			drowBranchesPercentBaku(responseBakuFiliasl);
+		}
+	});
 	$("#search").on("input", function(e) {
 		const VAL = this.value;
 		showNeedListItem(VAL);
+		document.getElementsByClassName("ion-android-search")[0].style.display =
+			"block";
+		document.getElementsByClassName("icon-close")[0].style.display = "none";
 		if (VAL.length < 1) {
 			searchList.style.transform = "scaleY(0)";
 			var reg = new RegExp("", "i");

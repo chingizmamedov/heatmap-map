@@ -787,16 +787,23 @@ path {
 .ts-1 {
 	transform: scale(1);
 }
+.icon-close {
+	display: none;
+	transform: translateY(-2px);
+}
+.map-hide {
+	transform: scale(0) !important;
+}
 
 @media only screen and (min-width: 1368px) {
 	#sgs-time,
 	#sgs-percent {
-		transform: scale(1.4) !important;
+		transform: scale(1.4);
 	}
 }
 @media only screen and (min-width: 1600px) {
 	#sgs-time,
 	#sgs-percent {
-		transform: scale(1.8) !important;
+		transform: scale(1.8);
 	}
 }
