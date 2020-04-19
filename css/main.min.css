@@ -807,3 +807,6 @@ path {
 		transform: scale(1.8);
 	}
 }
+.dropdown-item {
+	padding-left: 0;
+}

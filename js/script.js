@@ -1179,6 +1179,7 @@ function setActionsForListItem() {
 	Object.keys(listForAction).forEach((item) => {
 		listForAction[item].onclick = function() {
 			inputValue = this.getAttribute("data-name");
+			$("#search").val(inputValue);
 			var reg = new RegExp(inputValue, "i");
 			regValue = reg;
 			inputLength = inputValue.length;

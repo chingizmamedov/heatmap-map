@@ -292,13 +292,31 @@ $(function() {
 		$(".btn-back").removeClass("btn-back-shown");
 	});
 
-	$(document).on("click", ".circle", function() {
+	let oldID = '';
+	$(document).on("click", ".circle", function(e) {
 		const ID = $(this).attr("data-id");
-		COUNTERS_BTN.attr("href", `/heatmap/department/?branch=${ID}`);
-		DEPARTMENTS_BTN.attr("href", `/heatmap/department/?branch=${ID}`);
+		if(oldID === ID) {
+			isClicked = false;
+			COUNTERS_BTN.removeClass("ts-1");
+			DEPARTMENTS_BTN.removeClass("ts-1");
+			oldID = '';
+			return;
+		}
+		isClicked = true;
+		COUNTERS_BTN.attr("href", `/heatmap/counters/?branch=${ID}`);
+		DEPARTMENTS_BTN.attr("href", `/heatmap/departments/?branch=${ID}`);
 		COUNTERS_BTN.addClass("ts-1");
 		DEPARTMENTS_BTN.addClass("ts-1");
+		COUNTERS_BTN.css({
+			left: e.pageX - 90,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		DEPARTMENTS_BTN.css({
+			left: e.pageX + 20,
+			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
 		TOOLTIP.removeClass("tooltip-float-shown");
-		isClicked = true;
+		
+		oldID = ID;
 	});
 });
