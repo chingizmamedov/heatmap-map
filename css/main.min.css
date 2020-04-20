@@ -794,11 +794,16 @@ path {
 .map-hide {
 	transform: scale(0) !important;
 }
-
+.dropdown-item {
+	padding-left: 0;
+}
 @media only screen and (min-width: 1368px) {
 	#sgs-time,
 	#sgs-percent {
 		transform: scale(1.4);
+	}
+	.map-baki-svg {
+		transform: scale(0.6);
 	}
 }
 @media only screen and (min-width: 1600px) {
@@ -806,7 +811,7 @@ path {
 	#sgs-percent {
 		transform: scale(1.8);
 	}
-}
-.dropdown-item {
-	padding-left: 0;
+	.map-baki-svg {
+		transform: scale(0.7);
+	}
 }

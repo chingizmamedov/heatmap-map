@@ -1139,7 +1139,7 @@ const getAllData = () => {
 				deleteBranches();
 				drowBranchesPercent(responseAllFilials);
 				console.log("getAllData -> responseAllFilials", responseAllFilials);
-				setBakiTooltipDataPercent(responseAllFilials);
+				setBakiTooltipDataPercent(responseBakuFiliasl);
 				bakuPercentColor = "#CBE0BA";
 				drowBranchesPercentBaku(responseBakuFiliasl);
 				document.getElementsByClassName(

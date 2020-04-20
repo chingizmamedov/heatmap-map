@@ -144,13 +144,13 @@ $(function() {
 	}
 
 	const setPercentTooltipColor = (percent) => {
-		if (percent < 10) {
+		if (percent <= 10) {
 			TOOLTIP.css("background", "#5aaf2b");
-		} else if (percent >= 10 && percent <= 15) {
+		} else if (percent > 10 && percent <= 15) {
 			TOOLTIP.css("background", "#f8c43d");
-		} else if (percent >= 15 && percent <= 25) {
+		} else if (percent > 15 && percent <= 20) {
 			TOOLTIP.css("background", "#ef874c");
-		} else if (percent >= 25) {
+		} else if (percent > 20) {
 			TOOLTIP.css("background", "#e43e3d");
 		}
 	};
