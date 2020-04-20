@@ -1358,7 +1358,7 @@ $(function() {
 			$("#usrnm").text(data["fullName"]);
 			$(".img-circle").attr(
 				"src",
-				"assets/images/propfile/" + userName + ".jpg",
+				"/heatmap/assets/images/propfile/" + data["userName"] + ".jpg",
 			);
 		},
 	});
