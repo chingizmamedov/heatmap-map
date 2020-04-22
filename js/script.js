@@ -651,7 +651,7 @@ let regValue,
 	bakuPercentColor = "#CBE0BA",
 	averageWaitingTimeGlobal = 0;
 
-String.prototype.toTime = function() {
+String.prototype.toTime = function () {
 	var sec_num = parseInt(this, 10); // don't forget the second param
 	var hours = Math.floor(sec_num / 3600);
 	var minutes = Math.floor((sec_num - hours * 3600) / 60);
@@ -1020,64 +1020,44 @@ const deleteBranches = () => {
 
 const getAllData = () => {
 	getMapAveValyutaWaitData().then((response) => {
-		$("#valyuta-custom")
-			.parent()
-			.show("slow");
+		$("#valyuta-custom").parent().show("slow");
 		document.getElementById("valyuta-custom").innerHTML =
 			response.averageValyutaWaiting;
 	});
 	getMapNoShowData().then((lo) => {
-		$("#no-show")
-			.parent()
-			.show("slow");
+		$("#no-show").parent().show("slow");
 		$("#no-show").text(lo.noShow);
 	});
 	getMapAveServTimeData().then((resp) => {
-		$("#ave-serv-time")
-			.parent()
-			.show("slow");
+		$("#ave-serv-time").parent().show("slow");
 		$("#ave-serv-time").text(resp.averageServingTime);
 	});
 	getMapAveWaitData().then((resp) => {
-		$("#ave-waiting-time")
-			.parent()
-			.show("slow");
+		$("#ave-waiting-time").parent().show("slow");
 		$("#ave-waiting-time").text(resp.averageWaitingTime);
 	});
 	getMapClosePointData().then((resp) => {
-		$("#closed-counters")
-			.parent()
-			.show("slow");
+		$("#closed-counters").parent().show("slow");
 		$("#closed-counters").text(resp.closedServicePoints);
 	});
 	getMapDataCusWait().then((resp) => {
-		$("#waiting-custom")
-			.parent()
-			.show("slow");
+		$("#waiting-custom").parent().show("slow");
 		document.getElementById("waiting-custom").innerText = resp.customersWaiting;
 	});
 	getMapDataOpenPoint().then((resp) => {
-		$("#open-counters")
-			.parent()
-			.show("slow");
+		$("#open-counters").parent().show("slow");
 		$("#open-counters").text(resp.openServicePoints);
 	});
 	getMapMaxWaitData().then((resp) => {
-		$("#max-waiting-time")
-			.parent()
-			.show("slow");
+		$("#max-waiting-time").parent().show("slow");
 		document.getElementById("max-waiting-time").innerText = resp.maxWaitingTime;
 	});
 	getMapServCusData().then((resp) => {
-		$("#served-custom")
-			.parent()
-			.show("slow");
+		$("#served-custom").parent().show("slow");
 		document.getElementById("served-custom").innerText = resp.servedCustomers;
 	});
 	getMapRemovedData().then((resp) => {
-		$("#removed")
-			.parent()
-			.show("slow");
+		$("#removed").parent().show("slow");
 		document.getElementById("removed").innerText = resp.removed;
 	});
 	getTotalBranches()
@@ -1167,7 +1147,7 @@ function setActionsForListItem() {
 	const listForAction = document.getElementsByClassName("list-group-item");
 	const branchesLists = document.querySelectorAll(".link-item");
 	Object.keys(branchesLists).forEach((item) => {
-		branchesLists[item].onclick = function(e) {
+		branchesLists[item].onclick = function (e) {
 			COUNTER_INPUT.value = "";
 			DEPARTMENT_INPUT.value = "";
 			console.log(
@@ -1177,7 +1157,7 @@ function setActionsForListItem() {
 		};
 	});
 	Object.keys(listForAction).forEach((item) => {
-		listForAction[item].onclick = function() {
+		listForAction[item].onclick = function () {
 			inputValue = this.getAttribute("data-name");
 			$("#search").val(inputValue);
 			var reg = new RegExp(inputValue, "i");
@@ -1274,7 +1254,7 @@ function showNeedListItem(value, searchType) {
 	setNoData(listItems, reg, searchType);
 }
 
-document.onclick = function(e) {
+document.onclick = function (e) {
 	searchList.style.transform = "scaleY(0)";
 	let targetElem = e.target;
 	if (!targetElem.classList.contains("circle")) {
@@ -1289,8 +1269,8 @@ document.onclick = function(e) {
 const COUNTER_INPUT = document.getElementById("counter-input");
 const DEPARTMENT_INPUT = document.getElementById("department-input");
 
-$(function() {
-	$(".icon-close").click(function() {
+$(function () {
+	$(".icon-close").click(function () {
 		$(this).hide();
 		$(".ion-android-search").show();
 		$("#search").val("");
@@ -1306,7 +1286,7 @@ $(function() {
 			drowBranchesPercentBaku(responseBakuFiliasl);
 		}
 	});
-	$("#search").on("input", function(e) {
+	$("#search").on("input", function (e) {
 		const VAL = this.value;
 		showNeedListItem(VAL);
 		document.getElementsByClassName("ion-android-search")[0].style.display =
@@ -1327,26 +1307,20 @@ $(function() {
 		}
 	});
 
-	COUNTER_INPUT.onfocusin = function() {
-		$(this)
-			.parent()
-			.siblings("#counter-list")
-			.show();
+	COUNTER_INPUT.onfocusin = function () {
+		$(this).parent().siblings("#counter-list").show();
 	};
 
-	DEPARTMENT_INPUT.onfocusin = function() {
-		$(this)
-			.parent()
-			.siblings("#department-list")
-			.show();
+	DEPARTMENT_INPUT.onfocusin = function () {
+		$(this).parent().siblings("#department-list").show();
 	};
 
-	$("#counter-input").on("input", function(e) {
+	$("#counter-input").on("input", function (e) {
 		const VAL = this.value;
 		showNeedListItem(VAL, "counters");
 	});
 
-	$("#department-input").on("input", function(e) {
+	$("#department-input").on("input", function (e) {
 		const VAL = this.value;
 		showNeedListItem(VAL, "departments");
 	});
@@ -1354,11 +1328,11 @@ $(function() {
 	$.ajax({
 		url: "/rest/servicepoint/user/",
 		type: "GET",
-		success: function(data) {
+		success: function (data) {
 			$("#usrnm").text(data["fullName"]);
 			$(".img-circle").attr(
 				"src",
-				"/heatmap/assets/images/propfile/" + data["userName"] + ".jpg",
+				"/heatmap/assets/images/profile/" + data["userName"] + ".jpg",
 			);
 		},
 	});
