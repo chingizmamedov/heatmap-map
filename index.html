@@ -338,9 +338,9 @@
 
 							<!-- Header cards-->
 
-							<div class="row">
+							<div class="row" id="map-zoom">
 								<div class="col-md-12">
-									<div class="card mb-4">
+									<div id="card" class="card mb-4">
 										<div class="card-header card-header-custom">
 											<div class="card-title">
 												<div
@@ -384,6 +384,26 @@
 													<div
 														class="col-xl-5 col-3 search_col d-flex justify-content-end"
 													>
+													<div id="zoom-in"  class="btn-zoom">
+														<svg width="152" height="152" viewBox="0 0 152 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M13.0931 46.3456L1.00012 1L45.1862 12.7476L34.4885 24.2602L69.6048 70.7806L23.7908 35.3029L13.0931 46.3456Z" stroke="black"/>
+															<path d="M138.314 105.654L150.407 151L106.221 139.252L116.918 127.74L81.802 81.2194L127.616 116.697L138.314 105.654Z" stroke="black"/>
+															<path d="M45.8837 137.976L1 150.194L12.6279 105.553L24.0233 116.361L70.0698 80.8833L34.9535 127.169L45.8837 137.976Z" stroke="black"/>
+															<path d="M106.116 13.6874L151 1.46991L139.372 46.1107L127.977 35.3029L81.9302 70.7806L117.047 24.4951L106.116 13.6874Z" stroke="black"/>
+														</svg>														
+													</div>
+													<div id="zoom-out" class="btn-zoom">
+														<svg width="152" height="152" viewBox="0 0 152 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M58.6001 25.7711L70.6557 71.1166L26.6063 59.3691L37.2709 47.8565L2.26315 1.33617L47.9355 36.8138L58.6001 25.7711Z" stroke="black"/>
+															<path d="M58.6001 25.7711L70.6557 71.1166L26.6063 59.3691L37.2709 47.8565L2.26315 1.33617L47.9355 36.8138L58.6001 25.7711Z" stroke="black"/>
+															<path d="M93.6078 126.565L81.5522 81.2195L125.602 92.9671L114.937 104.48L149.945 151L104.272 115.522L93.6078 126.565Z" stroke="black"/>
+															<path d="M93.6078 126.565L81.5522 81.2195L125.602 92.9671L114.937 104.48L149.945 151L104.272 115.522L93.6078 126.565Z" stroke="black"/>
+															<path d="M25.1113 93.1008L69.8563 80.8834L58.2643 125.524L46.9042 114.716L1.00001 150.194L36.0077 103.909L25.1113 93.1008Z" stroke="black"/>
+															<path d="M25.1113 93.1008L69.8563 80.8834L58.2643 125.524L46.9042 114.716L1.00001 150.194L36.0077 103.909L25.1113 93.1008Z" stroke="black"/>
+															<path d="M126.889 58.0931L82.1437 70.3105L93.7357 25.6698L105.096 36.4776L151 0.999989L115.992 47.2853L126.889 58.0931Z" stroke="black"/>
+															<path d="M126.889 58.0931L82.1437 70.3105L93.7357 25.6698L105.096 36.4776L151 0.999989L115.992 47.2853L126.889 58.0931Z" stroke="black"/>
+														</svg>													
+													</div>
 														<div class="search">
 															<a
 																id="toggle_res_search"
@@ -443,7 +463,8 @@
 										</div>
 
 										<div class="card-body overflow-hidden" >
-											<div class="row justify-content-center position-relative overflow-hidden">
+											<div id="zoom-inner" class="row justify-content-center position-relative overflow-hidden">
+												
 												<div class="map-left">
 													<div class="card">
 														<div class="card-body">
