@@ -815,3 +815,47 @@ path {
 		transform: scale(0.7);
 	}
 }
+/* zoom */
+.btn-zoom {
+	height: 30px;
+	width: 30px;
+	position: relative;
+	cursor: pointer;
+	margin-right: 10px;
+	margin-top: 4px;
+}
+.btn-zoom svg {
+	height: 100%;
+	width: 100%;
+}
+#zoom-in,
+#zoom-out {
+	z-index: 2222;
+	display: inline-block;
+}
+#zoom-out {
+	display: none;
+}
+.map-zoom-active {
+	position: fixed;
+	z-index: 1111;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: white;
+	margin: 0;
+}
+.map-zoom-active #card {
+	height: 100%;
+}
+.map-zoom-active #zoom-inner {
+	height: 100%;
+	flex-grow: 1;
+}
+.map-zoom-active #maps-wrap {
+	transform: scale(1.46);
+}
+.tooltip-zoom {
+	z-index: 1200 !important;
+}

@@ -5,11 +5,9 @@ let whichShown = "time",
 	event,
 	element,
 	isClicked = false;
-$(function() {
-	$(".baki-time").click(function() {
-		$(this)
-			.parent()
-			.addClass("map-hide");
+$(function () {
+	$(".baki-time").click(function () {
+		$(this).parent().addClass("map-hide");
 		$("#map-baki-time").addClass("map-baki-shown");
 		$(".btn-back").addClass("btn-back-shown");
 		$(".map-left .map-info").css({
@@ -20,10 +18,8 @@ $(function() {
 		});
 	});
 
-	$(".baki-percent").click(function() {
-		$(this)
-			.parent()
-			.addClass("map-hide");
+	$(".baki-percent").click(function () {
+		$(this).parent().addClass("map-hide");
 		$("#map-baki-percent").addClass("map-baki-shown");
 		$(".btn-back").addClass("btn-back-shown");
 		$(".map-left .map-info").css({
@@ -36,7 +32,7 @@ $(function() {
 	const TOOLTIP = $(".tooltip-float");
 	const COUNTERS_BTN = $(".btn-counters");
 	const DEPARTMENTS_BTN = $(".btn-department");
-	$("body").on("mousemove", "#sgs-time", function(e) {
+	$("body").on("mousemove", "#sgs-time", function (e) {
 		console.log("isClicked", isClicked);
 		if (isClicked) {
 			return;
@@ -62,7 +58,7 @@ $(function() {
 			TOOLTIP.addClass("tooltip-float-shown");
 		}
 	});
-	$("body").on("mousemove", "#sgs-percent", function(e) {
+	$("body").on("mousemove", "#sgs-percent", function (e) {
 		if (isClicked) {
 			return;
 		}
@@ -87,7 +83,7 @@ $(function() {
 			TOOLTIP.addClass("tooltip-float-shown");
 		}
 	});
-	$("body").on("mousemove", "#map-baki-percent-svg", function(e) {
+	$("body").on("mousemove", "#map-baki-percent-svg", function (e) {
 		if (isClicked) {
 			return;
 		}
@@ -110,7 +106,7 @@ $(function() {
 			TOOLTIP.addClass("tooltip-float-shown");
 		}
 	});
-	$("body").on("mousemove", "#map-baki-time-svg", function(e) {
+	$("body").on("mousemove", "#map-baki-time-svg", function (e) {
 		if (isClicked) {
 			return;
 		}
@@ -167,7 +163,7 @@ $(function() {
 		}
 	};
 
-	$(".map-wrap").on("mouseover", ".circle", function(e) {
+	$(".map-wrap").on("mouseover", ".circle", function (e) {
 		if (isClicked) {
 			return;
 		}
@@ -197,7 +193,7 @@ $(function() {
 
 		hoverTimer = setTimeout(() => setHoverData(event), 1000);
 	});
-	$(".map-wrap").on("mouseover", ".baki", function(e) {
+	$(".map-wrap").on("mouseover", ".baki", function (e) {
 		if (isClicked) {
 			return;
 		}
@@ -226,13 +222,13 @@ $(function() {
 
 		hoverTimer = setTimeout(() => setHoverData(event), 1000);
 	});
-	$(".map-wrap").on("mouseout", ".circle", function() {
+	$(".map-wrap").on("mouseout", ".circle", function () {
 		TOOLTIP.removeClass("tooltip-float-shown");
 		clearTimeout(hoverTimer);
 		circleHovered = false;
 	});
 
-	$(".btn-back").click(function() {
+	$(".btn-back").click(function () {
 		if (whichShown == "time") {
 			$("#sgs-time").removeClass("map-hide");
 		} else {
@@ -247,13 +243,11 @@ $(function() {
 			transform: "translateX(0) scale(1)",
 		});
 	});
-	$("#tab-time").click(function() {
+	$("#tab-time").click(function () {
 		$("#sgs-time").addClass("sgs-animation");
 		$("#sgs-percent").addClass("sgs-animation");
 		$(".tab-btn").removeClass("tab-btn__active");
-		$(this)
-			.find(".tab-btn")
-			.addClass("tab-btn__active");
+		$(this).find(".tab-btn").addClass("tab-btn__active");
 		$(".map-baki").removeClass("map-baki-shown");
 		whichShown = "time";
 		$("#map-percent").removeClass("d-flex");
@@ -269,13 +263,11 @@ $(function() {
 		});
 		$(".btn-back").removeClass("btn-back-shown");
 	});
-	$("#tab-percent").click(function() {
+	$("#tab-percent").click(function () {
 		$("#sgs-time").addClass("sgs-animation");
 		$("#sgs-percent").addClass("sgs-animation");
 		$(".tab-btn").removeClass("tab-btn__active");
-		$(this)
-			.find(".tab-btn")
-			.addClass("tab-btn__active");
+		$(this).find(".tab-btn").addClass("tab-btn__active");
 		$(".map-baki").removeClass("map-baki-shown");
 		whichShown = "percent";
 		$("#map-percent").addClass("d-flex");
@@ -292,14 +284,14 @@ $(function() {
 		$(".btn-back").removeClass("btn-back-shown");
 	});
 
-	let oldID = '';
-	$(document).on("click", ".circle", function(e) {
+	let oldID = "";
+	$(document).on("click", ".circle", function (e) {
 		const ID = $(this).attr("data-id");
-		if(oldID === ID) {
+		if (oldID === ID) {
 			isClicked = false;
 			COUNTERS_BTN.removeClass("ts-1");
 			DEPARTMENTS_BTN.removeClass("ts-1");
-			oldID = '';
+			oldID = "";
 			return;
 		}
 		isClicked = true;
@@ -316,7 +308,20 @@ $(function() {
 			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
 		});
 		TOOLTIP.removeClass("tooltip-float-shown");
-		
+
 		oldID = ID;
+	});
+
+	$("#zoom-in").click(function (e) {
+		$(this).hide();
+		$("#zoom-out").show();
+		$("#map-zoom").addClass("map-zoom-active");
+		$(".tooltip-float").addClass("tooltip-zoom");
+	});
+	$("#zoom-out").click(function (e) {
+		$(this).hide();
+		$("#zoom-in").show();
+		$("#map-zoom").removeClass("map-zoom-active");
+		$(".tooltip-float").removeClass("tooltip-zoom");
 	});
 });
