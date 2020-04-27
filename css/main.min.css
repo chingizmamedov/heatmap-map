@@ -257,15 +257,9 @@ body {
 	justify-content: center;
 	overflow: hidden;
 }
-#map1 {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	height: 100%;
-	width: 80%;
-}
-
-#map2 {
+#map1,
+#map2,
+#map3 {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -282,7 +276,8 @@ body {
 	align-items: center;
 }
 
-#map-percent {
+#map-percent,
+#map-served-percent {
 	display: none;
 	-webkit-box-align: center;
 	-ms-flex-align: center;
@@ -290,7 +285,8 @@ body {
 }
 
 #sgs-time,
-#sgs-percent {
+#sgs-percent,
+#sgs-served-percent {
 	transform: scale(1.17);
 	-webkit-transition: 0.4s;
 	-o-transition: 0.4s;
@@ -684,7 +680,8 @@ keyframessvg
 		margin-top: 15px;
 	}
 	#sgs-time,
-	#sgs-percent {
+	#sgs-percent,
+	#sgs-served-percent {
 		margin: auto;
 		transform: scale(1);
 	}
@@ -797,9 +794,15 @@ path {
 .dropdown-item {
 	padding-left: 0;
 }
+@media only screen and (max-width: 1400px) {
+	.map-zoom-active .zoom-hiddden-element {
+		display: none;
+	}
+}
 @media only screen and (min-width: 1368px) {
 	#sgs-time,
-	#sgs-percent {
+	#sgs-percent,
+	#sgs-served-percent {
 		transform: scale(1.4);
 	}
 	.map-baki-svg {
@@ -816,6 +819,9 @@ path {
 	}
 }
 /* zoom */
+.card-zoom {
+	display: none;
+}
 .btn-zoom {
 	height: 30px;
 	width: 30px;
@@ -855,6 +861,9 @@ path {
 }
 .map-zoom-active #maps-wrap {
 	transform: scale(1.46);
+}
+.map-zoom-active .card-zoom {
+	display: block;
 }
 .tooltip-zoom {
 	z-index: 1200 !important;

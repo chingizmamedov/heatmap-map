@@ -29,9 +29,23 @@ $(function () {
 			transform: "translateX(90%) scale(.8)",
 		});
 	});
+
+	$(".baki-served-percent").click(function () {
+		$(this).parent().addClass("map-hide");
+		$("#map-baki-served-percent").addClass("map-baki-shown");
+		$(".btn-back").addClass("btn-back-shown");
+		$(".map-left .map-info").css({
+			transform: "translateX(-90%) scale(.8)",
+		});
+		$(".map-right .map-info").css({
+			transform: "translateX(90%) scale(.8)",
+		});
+	});
+
 	const TOOLTIP = $(".tooltip-float");
 	const COUNTERS_BTN = $(".btn-counters");
 	const DEPARTMENTS_BTN = $(".btn-department");
+
 	$("body").on("mousemove", "#sgs-time", function (e) {
 		console.log("isClicked", isClicked);
 		if (isClicked) {
@@ -140,14 +154,16 @@ $(function () {
 	}
 
 	const setPercentTooltipColor = (percent) => {
-		if (percent <= 10) {
-			TOOLTIP.css("background", "#5aaf2b");
-		} else if (percent > 10 && percent <= 15) {
-			TOOLTIP.css("background", "#f8c43d");
-		} else if (percent > 15 && percent <= 20) {
-			TOOLTIP.css("background", "#ef874c");
-		} else if (percent > 20) {
-			TOOLTIP.css("background", "#e43e3d");
+		if (percent < 0) {
+			TOOLTIP.css("background", "#000");
+		} else if ((percent) => 0 && percent <= 65) {
+			TOOLTIP.css("background", "red");
+		} else if (percent > 65 && percent < 75) {
+			TOOLTIP.css("background", "orange");
+		} else if ((percent) => 75 && percent < 85) {
+			TOOLTIP.css("background", "yellow");
+		} else {
+			TOOLTIP.css("background", "green");
 		}
 	};
 
@@ -173,7 +189,6 @@ $(function () {
 		event = e.target;
 		element = e.target;
 		let circleType = event.getAttribute("data-type");
-
 		if (circleType === "time") {
 			const data = event.getAttribute("data-awg-text");
 			document.getElementById("tooltip-float-percent").innerHTML = "";
@@ -183,8 +198,9 @@ $(function () {
 				parseInt(time[0] * 360) + parseInt(time[1] * 60) + parseInt(time[2]);
 			setTImeTooltipColor(sec);
 		} else {
+			let elementPercent = event.getAttribute("data-percent-text");
 			document.getElementById("tooltip-float-percent").innerHTML =
-				event.getAttribute("data-percent-text") + " %";
+				elementPercent + " %";
 			document.getElementById("tooltip-float-time").innerHTML = "";
 			let percentTooltip = event.getAttribute("data-percent-text");
 			percentTooltip = parseInt(percentTooltip);
@@ -193,6 +209,7 @@ $(function () {
 
 		hoverTimer = setTimeout(() => setHoverData(event), 1000);
 	});
+
 	$(".map-wrap").on("mouseover", ".baki", function (e) {
 		if (isClicked) {
 			return;
@@ -215,6 +232,10 @@ $(function () {
 				parseInt(time[0] * 360) + parseInt(time[1] * 60) + parseInt(time[2]);
 		} else {
 			let percent = event.getAttribute("data-percent-text");
+			if (percent < 0) {
+				TOOLTIP.hide();
+				return;
+			}
 			percent = percent !== null ? percent + "%" : "Data is calculate";
 			document.getElementById("tooltip-float-percent").innerHTML = percent;
 			document.getElementById("tooltip-float-time").innerHTML = "";
@@ -246,12 +267,15 @@ $(function () {
 	$("#tab-time").click(function () {
 		$("#sgs-time").addClass("sgs-animation");
 		$("#sgs-percent").addClass("sgs-animation");
+		$("#sgs-served-percent").addClass("sgs-animation");
 		$(".tab-btn").removeClass("tab-btn__active");
 		$(this).find(".tab-btn").addClass("tab-btn__active");
 		$(".map-baki").removeClass("map-baki-shown");
 		whichShown = "time";
 		$("#map-percent").removeClass("d-flex");
+		$("#map-served-percent").removeClass("d-flex");
 		$("#map-percent").addClass("d-none");
+		$("#map-served-percent").addClass("d-none");
 		$("#map-time").addClass("d-flex");
 		$("#map-time").removeClass("d-none");
 		$("#sgs-time").removeClass("map-hide");
@@ -266,6 +290,7 @@ $(function () {
 	$("#tab-percent").click(function () {
 		$("#sgs-time").addClass("sgs-animation");
 		$("#sgs-percent").addClass("sgs-animation");
+		$("#sgs-served-percent").addClass("sgs-animation");
 		$(".tab-btn").removeClass("tab-btn__active");
 		$(this).find(".tab-btn").addClass("tab-btn__active");
 		$(".map-baki").removeClass("map-baki-shown");
@@ -274,7 +299,32 @@ $(function () {
 		$("#map-percent").removeClass("d-none");
 		$("#sgs-percent").removeClass("map-hide");
 		$("#map-time").removeClass("d-flex");
+		$("#map-served-percent").removeClass("d-flex");
 		$("#map-time").addClass("d-none");
+		$("#map-served-percent").addClass("d-none");
+		$(".map-left .map-info").css({
+			transform: "translateX(0) scale(1)",
+		});
+		$(".map-right .map-info").css({
+			transform: "translateX(0) scale(1)",
+		});
+		$(".btn-back").removeClass("btn-back-shown");
+	});
+	$("#tab-served-percent").click(function () {
+		$("#sgs-time").addClass("sgs-animation");
+		$("#sgs-percent").addClass("sgs-animation");
+		$("#sgs-served-percent").addClass("sgs-animation");
+		$(".tab-btn").removeClass("tab-btn__active");
+		$(this).find(".tab-btn").addClass("tab-btn__active");
+		$(".map-baki").removeClass("map-baki-shown");
+		whichShown = "served-percent";
+		$("#map-served-percent").addClass("d-flex");
+		$("#map-served-percent").removeClass("d-none");
+		$("#sgs-served-percent").removeClass("map-hide");
+		$("#map-time").removeClass("d-flex");
+		$("#map-time").addClass("d-none");
+		$("#map-percent").removeClass("d-flex");
+		$("#map-percent").addClass("d-none");
 		$(".map-left .map-info").css({
 			transform: "translateX(0) scale(1)",
 		});
@@ -285,6 +335,7 @@ $(function () {
 	});
 
 	let oldID = "";
+
 	$(document).on("click", ".circle", function (e) {
 		const ID = $(this).attr("data-id");
 		if (oldID === ID) {

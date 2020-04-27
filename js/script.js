@@ -672,7 +672,6 @@ String.prototype.toTime = function () {
 const mainLink = "/heatmap";
 const INTERVAL = "5000"; // Bu refresh vaxtinin ms-nen olan reqemidi
 const BASE_URL = "http://192.168.1.69:8080/QmaticMap/"; // buda ip
-const GET_MAP_DATA = "getMapData";
 const MAP_DATA_CUSTOM_WAIT = "getMapDataCusWait";
 const GET_MAP_DATA_OPEN_POINT = "getMapDataOpenPoint";
 const GET_MAP_MAX_WEIT_DATA = "getMapMaxWaitData";
@@ -680,6 +679,7 @@ const QMATIC_MAP_GET_MAP_AVE_WAIT_DATA = "getMapAveWaitData";
 const QMATIC_MAP_QET_MAP_NO_SHOW_DATA = "getMapNoShowData";
 const QMATIC_MAP_GET_MAP_REMOVED_DATA = "getMapRemovedData";
 const QMATIC_MAP_GET_MAP_SERV_CUSTOM_DATA = "getMapServCusData";
+const MAP_ALERTS_DATA = "getMapAlertsData";
 const QMATIC_MAP_GET_MAP_AVE_SERV_TIME_DATA = "getMapAveServTimeData";
 const QMATIC_MAP_GET_MAP_CLOSE_POINT_DATA = "getMapClosePointData";
 const QMATIC_GET_TIMES = "getMapTimeData";
@@ -715,11 +715,19 @@ const getMapPercentData = async () => {
 	return data;
 };
 
-const getMapData = async () => {
+const getMapD = async () => {
 	const response = await fetch(BASE_URL + GET_MAP_DATA);
 	let data = await response.json();
 	return data;
 };
+
+const getServedPercent = async () => {
+	const response = await fetch(BASE_URL + "getMapAlertsDataByBranch");
+	let data = await response.json();
+	return data;
+};
+
+getServedPercent().then((response) => console.log(response));
 
 /**
  * @card data
@@ -773,6 +781,12 @@ const getMapServCusData = async () => {
 	return data;
 };
 
+const getMapAlertData = async () => {
+	const response = await fetch(BASE_URL + MAP_ALERTS_DATA);
+	let data = await response.json();
+	return data;
+};
+
 const getMapAveServTimeData = async () => {
 	const response = await fetch(
 		BASE_URL + QMATIC_MAP_GET_MAP_AVE_SERV_TIME_DATA,
@@ -790,9 +804,89 @@ const getMapClosePointData = async () => {
 //SVG start
 var svgTime = document.getElementById("sgs-time"),
 	svgPercent = document.getElementById("sgs-percent"),
-	svgTimeBaku = document.getElementById("map-baki-time-svg");
+	svgTimeBaku = document.getElementById("map-baki-time-svg"),
+	svgServedPercent = document.getElementById("sgs-served-percent");
 svgPercentBaku = document.getElementById("map-baki-percent-svg");
 NS = svgTime.getAttribute("xmlns");
+
+const setTimeColors = (element, value, isBaki = false) => {
+	if (value.averageWaitingTime !== undefined) {
+		element.setAttribute(
+			"data-awg-text",
+			String(value.averageWaitingTime).toTime(),
+		);
+		let color = "green";
+		if (value.averageWaitingTime > 660 && value.averageWaitingTime <= 900) {
+			color = "yellow";
+			if (isBaki) {
+				if (bakuTimeColor !== "orange") {
+					bakuTimeColor = "yellow";
+				}
+			}
+		} else if (
+			value.averageWaitingTime > 900 &&
+			value.averageWaitingTime <= 1200
+		) {
+			color = "orange";
+			if (isBaki) {
+				if (bakuTimeColor !== "red") {
+					bakuTimeColor = "orange";
+				}
+			}
+		} else if (value.averageWaitingTime > 1200) {
+			color = "red";
+			bakuTimeColor = "red";
+		}
+
+		element.style.stroke = color;
+	}
+};
+
+const setPercentColor = (element, value, isBaku = false) => {
+	if (value.percent !== undefined) {
+		element.setAttribute("data-percent-text", value.percent);
+		let color = "green";
+		if (value.percent < 0) {
+			color = "#000";
+			element.style.pointerEvents = "none";
+			if (isBaku) {
+				if (
+					bakuPercentColor != "yellow" ||
+					bakuPercentColor != "red" ||
+					bakuPercentColor != "orange"
+				) {
+					bakuPercentColor = "#333";
+				}
+			}
+		} else if (value.percent >= 0 && value.percent <= 65) {
+			if (isBaku) {
+				if (bakuPercentColor != "orange" || bakuPercentColor != "green") {
+					bakuPercentColor = "red";
+				}
+			}
+			color = "red";
+		} else if (value.percent > 65 && value.percent < 75) {
+			color = "orange";
+			if (isBaku) {
+				if (bakuPercentColor !== "red" || bakuPercentColor !== "yellow") {
+					bakuPercentColor = "orange";
+				}
+			}
+		} else if (value.percent >= 75 && value.percent < 85) {
+			if (isBaku) {
+				if (bakuPercentColor != "green") {
+					bakuPercentColor = "yellow";
+				}
+			}
+			color = "yellow";
+			bakuPercentColor = color;
+		} else {
+			bakuPercentColor = "green";
+			color = "green";
+		}
+		element.style.stroke = color;
+	}
+};
 
 const setCirclesTime = (key, value) => {
 	// debugger;
@@ -805,26 +899,24 @@ const setCirclesTime = (key, value) => {
 	circleTime.setAttributeNS(null, "cy", value.filialY);
 	circleTime.setAttributeNS(null, "r", 3);
 	circleTime.classList.add("circle");
-	if (value.averageWaitingTime !== undefined) {
-		circleTime.setAttribute(
-			"data-awg-text",
-			String(value.averageWaitingTime).toTime(),
-		);
-		let color = "green";
-		if (value.averageWaitingTime > 600 && value.averageWaitingTime <= 900) {
-			color = "yellow";
-		} else if (
-			value.averageWaitingTime > 900 &&
-			value.averageWaitingTime <= 1200
-		) {
-			color = "orange";
-		} else if (value.averageWaitingTime > 1200) {
-			color = "red";
-		}
-		circleTime.style.stroke = color;
-	}
+	setTimeColors(circleTime, value);
 	circleTime.style.stroke;
 	svgTime.appendChild(circleTime);
+};
+
+const setSirclesTimeBaku = (key, value) => {
+	var circleTime = document.createElementNS(NS, "circle");
+	circleTime.setAttribute("data-filialname", value.filialName);
+	circleTime.setAttribute("id", "time-" + key);
+	circleTime.setAttribute("data-id", key);
+	circleTime.setAttribute("data-type", "time");
+	circleTime.setAttributeNS(null, "cx", value.filialX);
+	setTimeColors(circleTime, value, true);
+	circleTime.setAttributeNS(null, "cy", value.filialY);
+	circleTime.setAttributeNS(null, "r", 3);
+	circleTime.classList.add("circle");
+	circleTime.style.stroke;
+	svgTimeBaku.appendChild(circleTime);
 };
 
 const setCirclesPercent = (key, value) => {
@@ -836,57 +928,9 @@ const setCirclesPercent = (key, value) => {
 	circlePercent.setAttributeNS(null, "cx", value.filialX);
 	circlePercent.setAttributeNS(null, "cy", value.filialY);
 	circlePercent.setAttributeNS(null, "r", 3);
-	if (value.percent !== undefined) {
-		circlePercent.setAttribute("data-percent-text", value.percent);
-		let color = "green";
-		if (value.percent > 10 && value.percent <= 15) {
-			color = "yellow";
-		} else if (value.percent > 15 && value.percent <= 20) {
-			color = "orange";
-		} else if (value.percent > 20) {
-			color = "red";
-		}
-		circlePercent.style.stroke = color;
-	}
+	setPercentColor(circlePercent, value);
 	circlePercent.classList.add("circle");
 	svgPercent.appendChild(circlePercent);
-};
-
-const setSirclesTimeBaku = (key, value) => {
-	var circleTime = document.createElementNS(NS, "circle");
-	circleTime.setAttribute("data-filialname", value.filialName);
-	circleTime.setAttribute("id", "time-" + key);
-	circleTime.setAttribute("data-id", key);
-	circleTime.setAttribute("data-type", "time");
-	circleTime.setAttributeNS(null, "cx", value.filialX);
-	if (value.averageWaitingTime !== undefined) {
-		circleTime.setAttribute(
-			"data-awg-text",
-			String(value.averageWaitingTime).toTime(),
-		);
-		averageWaitingTimeGlobal += value.averageWaitingTime;
-		let color = "green";
-		if (value.averageWaitingTime > 600 && value.averageWaitingTime <= 900) {
-			color = "yellow";
-		} else if (
-			value.averageWaitingTime > 900 &&
-			value.averageWaitingTime <= 1200
-		) {
-			color = "orange";
-			if (bakuTimeColor !== "red") {
-				bakuTimeColor = "orange";
-			}
-		} else if (value.averageWaitingTime > 1200) {
-			color = "red";
-			bakuTimeColor = "red";
-		}
-		circleTime.style.stroke = color;
-	}
-	circleTime.setAttributeNS(null, "cy", value.filialY);
-	circleTime.setAttributeNS(null, "r", 3);
-	circleTime.classList.add("circle");
-	circleTime.style.stroke;
-	svgTimeBaku.appendChild(circleTime);
 };
 
 const setSirclesPercentBaku = (key, value) => {
@@ -898,24 +942,23 @@ const setSirclesPercentBaku = (key, value) => {
 	circlePercent.setAttributeNS(null, "cx", value.filialX);
 	circlePercent.setAttributeNS(null, "cy", value.filialY);
 	circlePercent.setAttributeNS(null, "r", 3);
-	if (value.percent !== undefined) {
-		circlePercent.setAttribute("data-percent-text", value.percent);
-		let color = "green";
-		if (value.percent > 10 && value.percent <= 15) {
-			color = "yellow";
-		} else if (value.percent > 15 && value.percent <= 20) {
-			color = "orange";
-			if (bakuPercentColor !== "red") {
-				bakuPercentColor = "orange";
-			}
-		} else if (value.percent > 20) {
-			color = "red";
-			bakuPercentColor = "red";
-		}
-		circlePercent.style.stroke = color;
-	}
+	setPercentColor(circlePercent, value, true);
 	circlePercent.classList.add("circle");
 	svgPercentBaku.appendChild(circlePercent);
+};
+
+const setSirclesServedPercent = (key, value) => {
+	var circlePercent = document.createElementNS(NS, "circle");
+	circlePercent.setAttribute("data-filialname", value.filialName);
+	circlePercent.setAttribute("id", "percent-" + key);
+	circlePercent.setAttribute("data-id", key);
+	circlePercent.setAttribute("data-type", "percent");
+	circlePercent.setAttributeNS(null, "cx", value.filialX);
+	circlePercent.setAttributeNS(null, "cy", value.filialY);
+	circlePercent.setAttributeNS(null, "r", 3);
+	setPercentColor(circlePercent, value);
+	circlePercent.classList.add("circle");
+	svgServedPercent.appendChild(circlePercent);
 };
 
 const setBakiTooltipDataTime = (data) => {
@@ -936,7 +979,6 @@ const setBakiTooltipDataTime = (data) => {
 const setBakiTooltipDataPercent = (data) => {
 	let branch = "",
 		value = "";
-
 	const arr = Object.values(data).sort((a, b) => b.percent - a.percent);
 	branch = arr[0].name;
 	value = arr[0].percent;
@@ -996,6 +1038,23 @@ const drowBranchesPercent = (branches) => {
 	document.getElementById("sgs-percent").classList.remove("sgs-animation");
 };
 
+const drowBranchesServedPercent = (branches) => {
+	for (let [key, value] of Object.entries(branches)) {
+		if (value.filialY !== undefined && value.filialX !== undefined) {
+			if (inputLength > 2) {
+				if (regValue.test(value.name)) {
+					setSirclesServedPercent(key, value);
+				}
+			} else {
+				setSirclesServedPercent(key, value);
+			}
+		}
+	}
+	document
+		.getElementById("sgs-served-percent")
+		.classList.remove("sgs-animation");
+};
+
 const drowBranchesPercentBaku = (branches) => {
 	for (let [key, value] of Object.entries(branches)) {
 		if (value.filialY !== undefined && value.filialX !== undefined) {
@@ -1039,6 +1098,7 @@ const getAllData = () => {
 	getMapClosePointData().then((resp) => {
 		$("#closed-counters").parent().show("slow");
 		$("#closed-counters").text(resp.closedServicePoints);
+		$("#closed-counters-zoom").text(resp.closedServicePoints);
 	});
 	getMapDataCusWait().then((resp) => {
 		$("#waiting-custom").parent().show("slow");
@@ -1047,6 +1107,7 @@ const getAllData = () => {
 	getMapDataOpenPoint().then((resp) => {
 		$("#open-counters").parent().show("slow");
 		$("#open-counters").text(resp.openServicePoints);
+		$("#open-counters-zoom").text(resp.openServicePoints);
 	});
 	getMapMaxWaitData().then((resp) => {
 		$("#max-waiting-time").parent().show("slow");
@@ -1055,6 +1116,11 @@ const getAllData = () => {
 	getMapServCusData().then((resp) => {
 		$("#served-custom").parent().show("slow");
 		document.getElementById("served-custom").innerText = resp.servedCustomers;
+	});
+	getMapAlertData().then((resp) => {
+		console.log("getAllData -> resp alert", resp);
+		document.getElementById("served-percent-zoom").innerText = resp.alert;
+		document.getElementById("served-percent").innerText = resp.alert;
 	});
 	getMapRemovedData().then((resp) => {
 		$("#removed").parent().show("slow");
@@ -1066,6 +1132,7 @@ const getAllData = () => {
 				return accum + value.freeUsers;
 			}, 0);
 			document.getElementById("free-users").innerHTML = sum;
+			document.getElementById("free-users-zoom").innerHTML = sum;
 		})
 		.catch((err) => console.error(err));
 	if (whichShown === "time") {
@@ -1097,7 +1164,7 @@ const getAllData = () => {
 				)[0].style.fill = bakuTimeColor;
 				setTimeout(getAllData, INTERVAL);
 			});
-	} else {
+	} else if (whichShown === "percent") {
 		getMapPercentData()
 			.then((resp) => {
 				Object.keys(resp).forEach((item) => {
@@ -1127,6 +1194,8 @@ const getAllData = () => {
 				)[0].style.fill = bakuPercentColor;
 				setTimeout(getAllData, INTERVAL);
 			});
+	} else {
+		debugger;
 	}
 };
 
