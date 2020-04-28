@@ -761,8 +761,8 @@ path {
 }
 
 .btn-counters {
-	background-color: #ffb642;
-	border-color: #ffb642;
+	background-color: #3e82c1;
+	border-color: #3e82c1;
 	font-size: 11px;
 	position: fixed;
 	z-index: 9000;
@@ -770,7 +770,16 @@ path {
 	transition: 0.3s;
 }
 
-.btn-department,
+.btn-department {
+	background-color: #3e82c1;
+	border-color: #3e82c1;
+	color: #fff;
+	font-size: 11px;
+	position: fixed;
+	z-index: 9000;
+	transform: scale(0);
+	transition: 0.3s;
+}
 .btn-opspanel {
 	background-color: #3e82c1;
 	border-color: #3e82c1;
@@ -786,6 +795,7 @@ path {
 .btn-department,
 .btn-opspanel {
 	color: white !important;
+	width: 130px;
 }
 
 .ts-1 {

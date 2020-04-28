@@ -811,28 +811,36 @@ svgPercentBaku = document.getElementById("map-baki-percent-svg");
 svgServedPercentBaku = document.getElementById("map-baki-served-percent-svg");
 NS = svgTime.getAttribute("xmlns");
 
+const COLORS = {
+	red: "#B52626",
+	yellow: "#DFEC48",
+	green: "#189915",
+	orange: "#F96323",
+	black: "#444",
+};
+
 const setTimeColors = (element, value, isBaki = false) => {
 	if (value.averageWaitingTime !== undefined) {
 		element.setAttribute(
 			"data-awg-text",
 			String(value.averageWaitingTime).toTime(),
 		);
-		let color = "green";
+		let color = "#189915";
 		if (value.averageWaitingTime > 660 && value.averageWaitingTime <= 900) {
-			color = "yellow";
+			color = "#DFEC48";
 			if (isBaki) {
-				if (bakuTimeColor !== "orange") {
-					bakuTimeColor = "yellow";
+				if (bakuTimeColor !== "#F96323") {
+					bakuTimeColor = "#DFEC48";
 				}
 			}
 		} else if (
 			value.averageWaitingTime > 900 &&
 			value.averageWaitingTime <= 1200
 		) {
-			color = "orange";
+			color = "#F96323";
 			if (isBaki) {
 				if (bakuTimeColor !== "#d32f2f") {
-					bakuTimeColor = "orange";
+					bakuTimeColor = "#F96323";
 				}
 			}
 		} else if (value.averageWaitingTime > 1200) {
@@ -847,48 +855,53 @@ const setTimeColors = (element, value, isBaki = false) => {
 const setPercentColor = (element, value, isBaku = false) => {
 	if (value.percent !== undefined) {
 		element.setAttribute("data-percent-text", value.percent);
-		let color = "green";
+		let color = "#189915";
 		if (value.percent < 0) {
 			color = "#000";
-			// element.style.pointerEvents = "none";
+			element.style.pointerEvents = "none";
 			if (isBaku) {
-				bakuPercentColor = "#444";
+				if (
+					bakuPercentColor != COLORS.red &&
+					bakuPercentColor != COLORS.green &&
+					bakuPercentColor != COLORS.orange &&
+					bakuPercentColor != COLORS.yellow
+				) {
+					bakuPercentColor = COLORS.black;
+				}
 			}
 		} else if (value.percent >= 0 && value.percent <= 65) {
 			if (isBaku) {
 				if (bakuPercentColor != "#444") {
-					bakuPercentColor = "#d32f2f";
+					if (
+						bakuPercentColor != COLORS.green &&
+						bakuPercentColor != COLORS.orange &&
+						bakuPercentColor != COLORS.yellow
+					) {
+						bakuPercentColor = COLORS.red;
+					}
 				}
 			}
 			color = "#d32f2f";
 		} else if (value.percent > 65 && value.percent < 75) {
-			color = "orange";
+			color = "#F96323";
 			if (isBaku) {
-				if (bbakuPercentColor != "#444" && bakuPercentColor != "#d32f2f") {
-					bakuPercentColor = "orange";
+				if (
+					bakuPercentColor != COLORS.green &&
+					bakuPercentColor != COLORS.yellow
+				) {
+					bakuPercentColor = COLORS.orange;
 				}
 			}
 		} else if (value.percent >= 75 && value.percent < 85) {
 			if (isBaku) {
-				if (
-					bakuPercentColor != "#444" &&
-					bakuPercentColor != "#d32f2f" &&
-					bakuPercentColor != "orange"
-				) {
-					bakuPercentColor = "yellow";
+				if (bakuPercentColor != COLORS.green) {
+					bakuPercentColor = COLORS.yellow;
 				}
 			}
-			color = "yellow";
+			color = "#DFEC48";
 		} else {
-			if (
-				bakuPercentColor != "#444" &&
-				bakuPercentColor != "yellow" &&
-				bakuPercentColor != "#d32f2f" &&
-				bakuPercentColor != "orange"
-			) {
-				bakuPercentColor = "green";
-			}
-			color = "green";
+			bakuPercentColor = COLORS.green;
+			color = "#189915";
 		}
 		element.style.stroke = color;
 	}
@@ -897,51 +910,51 @@ const setPercentColor = (element, value, isBaku = false) => {
 const setServedPercentColor = (element, value, isBaku = true) => {
 	if (value.alert !== undefined) {
 		element.setAttribute("data-percent-text", value.alert);
-		let color = "green";
+		let color = "#189915";
 		if (value.alert < 0) {
 			color = "#000";
 			element.style.pointerEvents = "none";
 			if (isBaku) {
-				bakuServedPercentColor = "#444";
+				if (
+					bakuServedPercentColor != COLORS.red &&
+					bakuServedPercentColor != COLORS.green &&
+					bakuServedPercentColor != COLORS.orange &&
+					bakuServedPercentColor != COLORS.yellow
+				) {
+					bakuServedPercentColor = COLORS.black;
+				}
 			}
 		} else if (value.alert >= 0 && value.alert <= 65) {
 			if (isBaku) {
-				if (bakuServedPercentColor != "#444") {
-					bakuServedPercentColor = "#d32f2f";
+				if (
+					bakuServedPercentColor != COLORS.green &&
+					bakuServedPercentColor != COLORS.orange &&
+					bakuServedPercentColor != COLORS.yellow
+				) {
+					bakuServedPercentColor = COLORS.red;
 				}
 			}
 			color = "#d32f2f";
 		} else if (value.alert > 65 && value.alert < 75) {
-			color = "orange";
+			color = "#F96323";
 			if (isBaku) {
 				if (
-					bakuServedPercentColor != "#444" &&
-					bakuServedPercentColor != "#d32f2f"
+					bakuServedPercentColor != COLORS.green &&
+					bakuServedPercentColor != COLORS.yellow
 				) {
-					bakuServedPercentColor = "orange";
+					bakuServedPercentColor = COLORS.orange;
 				}
 			}
 		} else if (value.alert >= 75 && value.alert < 85) {
 			if (isBaku) {
-				if (
-					bakuServedPercentColor != "#444" &&
-					bakuServedPercentColor != "#d32f2f" &&
-					bakuServedPercentColor != "orange"
-				) {
-					bakuServedPercentColor = "yellow";
+				if (bakuServedPercentColor != COLORS.green) {
+					bakuServedPercentColor = COLORS.yellow;
 				}
 			}
-			color = "yellow";
+			color = "#DFEC48";
 		} else {
-			if (
-				bakuServedPercentColor != "#444" &&
-				bakuServedPercentColor != "yellow" &&
-				bakuServedPercentColor != "#d32f2f" &&
-				bakuServedPercentColor != "orange"
-			) {
-				bakuServedPercentColor = "green";
-			}
-			color = "green";
+			bakuServedPercentColor = COLORS.green;
+			color = "#189915";
 		}
 		element.style.stroke = color;
 	}

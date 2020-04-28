@@ -236,13 +236,13 @@ $(function () {
 			TOOLTIP.css("background", "#d32f2f");
 			TOOLTIP.css("color", "#fff");
 		} else if (percent > 65 && percent < 75) {
-			TOOLTIP.css("background", "orange");
+			TOOLTIP.css("background", "#F96323");
 			TOOLTIP.css("color", "#fff");
 		} else if (percent >= 75 && percent < 85) {
-			TOOLTIP.css("background", "yellow");
+			TOOLTIP.css("background", "#DFEC48");
 			TOOLTIP.css("color", "white");
 		} else {
-			TOOLTIP.css("background", "green");
+			TOOLTIP.css("background", "#189915");
 			TOOLTIP.css("color", "#fff");
 		}
 	};
@@ -377,7 +377,6 @@ $(function () {
 		});
 		$(".btn-back").removeClass("btn-back-shown");
 	});
-
 	$("#tab-percent").click(function () {
 		$("#sgs-time").addClass("sgs-animation");
 		$("#sgs-percent").addClass("sgs-animation");
@@ -449,12 +448,16 @@ $(function () {
 		opspanelBtn.addClass("ts-1");
 		DEPARTMENTS_BTN.addClass("ts-1");
 		COUNTERS_BTN.css({
-			left: e.pageX - 90,
-			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+			left: e.clientX + 20,
+			top: e.clientY + 20,
 		});
 		DEPARTMENTS_BTN.css({
-			left: e.pageX + 20,
-			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+			left: e.clientX + 20,
+			top: e.clientY - 15,
+		});
+		opspanelBtn.css({
+			left: e.clientX + 20,
+			top: e.clientY - 50,
 		});
 		TOOLTIP.removeClass("tooltip-float-shown");
 		oldID = ID;
