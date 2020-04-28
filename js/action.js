@@ -206,14 +206,19 @@ $(function () {
 		console.log("setPercentTooltipColor -> percent", percent);
 		if (percent < 0) {
 			TOOLTIP.css("background", "#000");
+			TOOLTIP.css("color", "#fff");
 		} else if (percent >= 0 && percent <= 65) {
-			TOOLTIP.css("background", "red");
+			TOOLTIP.css("background", "#d32f2f");
+			TOOLTIP.css("color", "#fff");
 		} else if (percent > 65 && percent < 75) {
 			TOOLTIP.css("background", "orange");
+			TOOLTIP.css("color", "#fff");
 		} else if (percent >= 75 && percent < 85) {
 			TOOLTIP.css("background", "yellow");
+			TOOLTIP.css("color", "white");
 		} else {
 			TOOLTIP.css("background", "green");
+			TOOLTIP.css("color", "#fff");
 		}
 	};
 
@@ -420,7 +425,6 @@ $(function () {
 			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
 		});
 		TOOLTIP.removeClass("tooltip-float-shown");
-
 		oldID = ID;
 	});
 

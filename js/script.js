@@ -649,6 +649,7 @@ let regValue,
 	responseBakuFiliasl = {},
 	bakuTimeColor = "#CBE0BA",
 	bakuPercentColor = "#CBE0BA",
+	bakuServedPercentColor = "#CBE0BA",
 	averageWaitingTimeGlobal = 0;
 
 String.prototype.toTime = function () {
@@ -830,13 +831,13 @@ const setTimeColors = (element, value, isBaki = false) => {
 		) {
 			color = "orange";
 			if (isBaki) {
-				if (bakuTimeColor !== "red") {
+				if (bakuTimeColor !== "#d32f2f") {
 					bakuTimeColor = "orange";
 				}
 			}
 		} else if (value.averageWaitingTime > 1200) {
-			color = "red";
-			bakuTimeColor = "red";
+			color = "#d32f2f";
+			bakuTimeColor = "#d32f2f";
 		}
 
 		element.style.stroke = color;
@@ -844,58 +845,56 @@ const setTimeColors = (element, value, isBaki = false) => {
 };
 
 const setPercentColor = (element, value, isBaku = false) => {
-	console.log("setPercentColor -> value", value.percent);
 	if (value.percent !== undefined) {
 		element.setAttribute("data-percent-text", value.percent);
 		let color = "green";
 		if (value.percent < 0) {
 			color = "#000";
-			element.style.pointerEvents = "none";
+			// element.style.pointerEvents = "none";
 			if (isBaku) {
-				if (
-					bakuPercentColor != "yellow" &&
-					bakuPercentColor != "red" &&
-					bakuPercentColor != "orange" &&
-					bakuPercentColor != "green"
-				) {
-					bakuPercentColor = "#333";
-				}
+				bakuPercentColor = "#444";
 			}
 		} else if (value.percent >= 0 && value.percent <= 65) {
 			if (isBaku) {
-				if (
-					bakuPercentColor != "orange" &&
-					bakuPercentColor != "green" &&
-					bakuPercentColor != "yellow"
-				) {
-					bakuPercentColor = "red";
+				if (bakuPercentColor != "#444") {
+					bakuPercentColor = "#d32f2f";
 				}
 			}
-			color = "red";
+			color = "#d32f2f";
 		} else if (value.percent > 65 && value.percent < 75) {
 			color = "orange";
 			if (isBaku) {
-				if (bakuPercentColor != "green" && bakuPercentColor != "yellow") {
+				if (bbakuPercentColor != "#444" && bakuPercentColor != "#d32f2f") {
 					bakuPercentColor = "orange";
 				}
 			}
 		} else if (value.percent >= 75 && value.percent < 85) {
 			if (isBaku) {
-				if (bakuPercentColor != "green") {
+				if (
+					bakuPercentColor != "#444" &&
+					bakuPercentColor != "#d32f2f" &&
+					bakuPercentColor != "orange"
+				) {
 					bakuPercentColor = "yellow";
 				}
 			}
 			color = "yellow";
-			bakuPercentColor = color;
 		} else {
-			bakuPercentColor = "green";
+			if (
+				bakuPercentColor != "#444" &&
+				bakuPercentColor != "yellow" &&
+				bakuPercentColor != "#d32f2f" &&
+				bakuPercentColor != "orange"
+			) {
+				bakuPercentColor = "green";
+			}
 			color = "green";
 		}
 		element.style.stroke = color;
 	}
 };
 
-const setServedPercentColor = (element, value, isBaku = false) => {
+const setServedPercentColor = (element, value, isBaku = true) => {
 	if (value.alert !== undefined) {
 		element.setAttribute("data-percent-text", value.alert);
 		let color = "green";
@@ -903,43 +902,45 @@ const setServedPercentColor = (element, value, isBaku = false) => {
 			color = "#000";
 			element.style.pointerEvents = "none";
 			if (isBaku) {
-				if (
-					bakuPercentColor != "yellow" &&
-					bakuPercentColor != "green" &&
-					bakuPercentColor != "red" &&
-					bakuPercentColor != "orange"
-				) {
-					bakuPercentColor = "#444";
-				}
+				bakuServedPercentColor = "#444";
 			}
 		} else if (value.alert >= 0 && value.alert <= 65) {
 			if (isBaku) {
-				if (
-					bakuPercentColor != "orange" &&
-					bakuPercentColor != "green" &&
-					bakuPercentColor != "yellow"
-				) {
-					bakuPercentColor = "red";
+				if (bakuServedPercentColor != "#444") {
+					bakuServedPercentColor = "#d32f2f";
 				}
 			}
-			color = "red";
+			color = "#d32f2f";
 		} else if (value.alert > 65 && value.alert < 75) {
 			color = "orange";
 			if (isBaku) {
-				if (bakuPercentColor != "green" && bakuPercentColor != "yellow") {
-					bakuPercentColor = "orange";
+				if (
+					bakuServedPercentColor != "#444" &&
+					bakuServedPercentColor != "#d32f2f"
+				) {
+					bakuServedPercentColor = "orange";
 				}
 			}
 		} else if (value.alert >= 75 && value.alert < 85) {
 			if (isBaku) {
-				if (bakuPercentColor != "green") {
-					bakuPercentColor = "yellow";
+				if (
+					bakuServedPercentColor != "#444" &&
+					bakuServedPercentColor != "#d32f2f" &&
+					bakuServedPercentColor != "orange"
+				) {
+					bakuServedPercentColor = "yellow";
 				}
 			}
 			color = "yellow";
-			bakuPercentColor = color;
 		} else {
-			bakuPercentColor = "green";
+			if (
+				bakuServedPercentColor != "#444" &&
+				bakuServedPercentColor != "yellow" &&
+				bakuServedPercentColor != "#d32f2f" &&
+				bakuServedPercentColor != "orange"
+			) {
+				bakuServedPercentColor = "green";
+			}
 			color = "green";
 		}
 		element.style.stroke = color;
@@ -1283,7 +1284,6 @@ const getAllData = () => {
 			.then(() => {
 				deleteBranches();
 				drowBranchesPercent(responseAllFilials);
-				console.log("getAllData -> responseAllFilials", responseAllFilials);
 				setBakiTooltipDataPercent(responseBakuFiliasl);
 				bakuPercentColor = "#CBE0BA";
 				drowBranchesPercentBaku(responseBakuFiliasl);
@@ -1323,11 +1323,11 @@ const getAllData = () => {
 				deleteBranches();
 				drowBranchesServedPercent(responseAllFilials);
 				setBakiTooltipDataServedPercent(responseBakuFiliasl);
-				bakuPercentColor = "#CBE0BA";
+				bakuServedPercentColor = "#CBE0BA";
 				drowBranchesServedPercentBaku(responseBakuFiliasl);
 				document.getElementsByClassName(
 					"baki-served-percent",
-				)[0].style.fill = bakuPercentColor;
+				)[0].style.fill = bakuServedPercentColor;
 				getTotalBranches()
 					.then((response) => {
 						const sum = response.reduce((accum, value) => {
