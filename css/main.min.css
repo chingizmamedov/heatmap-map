@@ -770,7 +770,8 @@ path {
 	transition: 0.3s;
 }
 
-.btn-department {
+.btn-department,
+.btn-opspanel {
 	background-color: #3e82c1;
 	border-color: #3e82c1;
 	color: #fff;
@@ -782,7 +783,8 @@ path {
 }
 
 .btn-counters,
-.btn-department {
+.btn-department,
+.btn-opspanel {
 	color: white !important;
 }
 

@@ -1474,6 +1474,7 @@ document.onclick = function (e) {
 	let targetElem = e.target;
 	if (!targetElem.classList.contains("circle")) {
 		document.getElementsByClassName("btn-counters")[0].classList.remove("ts-1");
+		document.getElementsByClassName("btn-opspanel")[0].classList.remove("ts-1");
 		document
 			.getElementsByClassName("btn-department")[0]
 			.classList.remove("ts-1");

@@ -45,6 +45,7 @@ $(function () {
 	const TOOLTIP = $(".tooltip-float");
 	const COUNTERS_BTN = $(".btn-counters");
 	const DEPARTMENTS_BTN = $(".btn-department");
+	const opspanelBtn = $("#opspanel-btn");
 
 	$("body").on("mousemove", "#sgs-time", function (e) {
 		console.log("isClicked", isClicked);
@@ -62,6 +63,10 @@ $(function () {
 		DEPARTMENTS_BTN.css({
 			left: e.pageX + 20,
 			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		opspanelBtn.css({
+			left: e.pageX,
+			top: e.pageY < 230 ? 230 - 30 : e.pageY - 80,
 		});
 		const checkHover =
 			e.target.classList.contains("circle") ||
@@ -88,6 +93,10 @@ $(function () {
 			left: e.pageX + 20,
 			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
 		});
+		opspanelBtn.css({
+			left: e.pageX,
+			top: e.pageY < 230 ? 230 - 30 : e.pageY - 80,
+		});
 		const checkHover =
 			e.target.classList.contains("circle") ||
 			e.target.classList.contains("baki");
@@ -113,6 +122,10 @@ $(function () {
 			left: e.pageX + 20,
 			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
 		});
+		opspanelBtn.css({
+			left: e.pageX,
+			top: e.pageY < 230 ? 230 - 30 : e.pageY - 80,
+		});
 		const checkHover = e.target.classList.contains("circle");
 		if (!checkHover) {
 			TOOLTIP.removeClass("tooltip-float-shown");
@@ -135,6 +148,10 @@ $(function () {
 		DEPARTMENTS_BTN.css({
 			left: e.pageX + 20,
 			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		opspanelBtn.css({
+			left: e.pageX,
+			top: e.pageY < 230 ? 230 - 30 : e.pageY - 80,
 		});
 		const checkHover = e.target.classList.contains("circle");
 		if (!checkHover) {
@@ -160,6 +177,10 @@ $(function () {
 			left: e.pageX + 20,
 			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
 		});
+		opspanelBtn.css({
+			left: e.pageX,
+			top: e.pageY < 230 ? 230 - 30 : e.pageY - 80,
+		});
 		const checkHover =
 			e.target.classList.contains("circle") ||
 			e.target.classList.contains("baki");
@@ -184,6 +205,10 @@ $(function () {
 		DEPARTMENTS_BTN.css({
 			left: e.pageX + 20,
 			top: e.pageY < 230 ? 230 - 10 : e.pageY - 40,
+		});
+		opspanelBtn.css({
+			left: e.pageX,
+			top: e.pageY < 230 ? 230 - 30 : e.pageY - 80,
 		});
 		const checkHover = e.target.classList.contains("circle");
 		if (!checkHover) {
@@ -404,17 +429,24 @@ $(function () {
 
 	$(document).on("click", ".circle", function (e) {
 		const ID = $(this).attr("data-id");
+		const name = $(this).attr("data-filialname");
 		if (oldID === ID) {
 			isClicked = false;
 			COUNTERS_BTN.removeClass("ts-1");
 			DEPARTMENTS_BTN.removeClass("ts-1");
+			opspanelBtn.removeClass("ts-1");
 			oldID = "";
 			return;
 		}
 		isClicked = true;
 		COUNTERS_BTN.attr("href", `/heatmap/counters/?branch=${ID}`);
 		DEPARTMENTS_BTN.attr("href", `/heatmap/departments/?branch=${ID}`);
+		opspanelBtn.attr(
+			"href",
+			`/heatmap/opspanel/?branch=${ID}&branchname=${name}`,
+		);
 		COUNTERS_BTN.addClass("ts-1");
+		opspanelBtn.addClass("ts-1");
 		DEPARTMENTS_BTN.addClass("ts-1");
 		COUNTERS_BTN.css({
 			left: e.pageX - 90,
