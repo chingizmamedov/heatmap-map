@@ -332,13 +332,13 @@ $(function () {
 		$(this).find(".tab-btn").addClass("tab-btn__active");
 		$(".map-baki").removeClass("map-baki-shown");
 		whichShown = "time";
+		$("#map-time").addClass("d-flex");
+		$("#map-time").removeClass("d-none");
+		$("#sgs-time").removeClass("map-hide");
 		$("#map-percent").removeClass("d-flex");
 		$("#map-served-percent").removeClass("d-flex");
 		$("#map-percent").addClass("d-none");
 		$("#map-served-percent").addClass("d-none");
-		$("#map-time").addClass("d-flex");
-		$("#map-time").removeClass("d-none");
-		$("#sgs-time").removeClass("map-hide");
 		$(".map-left .map-info").css({
 			transform: "translateX(0) scale(1)",
 		});
@@ -347,6 +347,7 @@ $(function () {
 		});
 		$(".btn-back").removeClass("btn-back-shown");
 	});
+
 	$("#tab-percent").click(function () {
 		$("#sgs-time").addClass("sgs-animation");
 		$("#sgs-percent").addClass("sgs-animation");

@@ -904,11 +904,12 @@ const setServedPercentColor = (element, value, isBaku = false) => {
 			element.style.pointerEvents = "none";
 			if (isBaku) {
 				if (
-					bakuPercentColor != "yellow" ||
-					bakuPercentColor != "red" ||
+					bakuPercentColor != "yellow" &&
+					bakuPercentColor != "green" &&
+					bakuPercentColor != "red" &&
 					bakuPercentColor != "orange"
 				) {
-					bakuPercentColor = "#333";
+					bakuPercentColor = "#444";
 				}
 			}
 		} else if (value.alert >= 0 && value.alert <= 65) {
@@ -1223,15 +1224,6 @@ const getAllData = () => {
 		$("#removed").parent().show("slow");
 		document.getElementById("removed").innerText = resp.removed;
 	});
-	getTotalBranches()
-		.then((response) => {
-			const sum = response.reduce((accum, value) => {
-				return accum + value.freeUsers;
-			}, 0);
-			document.getElementById("free-users").innerHTML = sum;
-			document.getElementById("free-users-zoom").innerHTML = sum;
-		})
-		.catch((err) => console.error(err));
 	if (whichShown === "time") {
 		getMapTimeData()
 			.then((resp) => {
@@ -1259,6 +1251,15 @@ const getAllData = () => {
 				document.getElementsByClassName(
 					"baki-time",
 				)[0].style.fill = bakuTimeColor;
+				getTotalBranches()
+					.then((response) => {
+						const sum = response.reduce((accum, value) => {
+							return accum + value.freeUsers;
+						}, 0);
+						document.getElementById("free-users").innerHTML = sum;
+						document.getElementById("free-users-zoom").innerHTML = sum;
+					})
+					.catch((err) => console.error(err));
 				setTimeout(getAllData, INTERVAL);
 			});
 	} else if (whichShown === "percent") {
@@ -1289,6 +1290,15 @@ const getAllData = () => {
 				document.getElementsByClassName(
 					"baki-percent",
 				)[0].style.fill = bakuPercentColor;
+				getTotalBranches()
+					.then((response) => {
+						const sum = response.reduce((accum, value) => {
+							return accum + value.freeUsers;
+						}, 0);
+						document.getElementById("free-users").innerHTML = sum;
+						document.getElementById("free-users-zoom").innerHTML = sum;
+					})
+					.catch((err) => console.error(err));
 				setTimeout(getAllData, INTERVAL);
 			});
 	} else {
@@ -1318,6 +1328,15 @@ const getAllData = () => {
 				document.getElementsByClassName(
 					"baki-served-percent",
 				)[0].style.fill = bakuPercentColor;
+				getTotalBranches()
+					.then((response) => {
+						const sum = response.reduce((accum, value) => {
+							return accum + value.freeUsers;
+						}, 0);
+						document.getElementById("free-users").innerHTML = sum;
+						document.getElementById("free-users-zoom").innerHTML = sum;
+					})
+					.catch((err) => console.error(err));
 				setTimeout(getAllData, INTERVAL);
 			});
 	}
