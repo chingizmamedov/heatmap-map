@@ -711,6 +711,7 @@ keyframessvg
 	transition: 0.3s;
 	border-radius: 6px;
 }
+
 .list-group-item {
 	transform-origin: center;
 	transition: 0.3s;
@@ -742,6 +743,7 @@ path {
 .no-data {
 	display: none;
 }
+
 .tooltip-btns {
 	position: absolute;
 	left: 0;
@@ -757,6 +759,7 @@ path {
 	align-items: center;
 	justify-content: center;
 }
+
 .btn-counters {
 	background-color: #ffb642;
 	border-color: #ffb642;
@@ -766,6 +769,7 @@ path {
 	transform: scale(0);
 	transition: 0.3s;
 }
+
 .btn-department {
 	background-color: #3e82c1;
 	border-color: #3e82c1;
@@ -776,6 +780,7 @@ path {
 	transform: scale(0);
 	transition: 0.3s;
 }
+
 .btn-counters,
 .btn-department {
 	color: white !important;
@@ -811,7 +816,8 @@ path {
 }
 @media only screen and (min-width: 1600px) {
 	#sgs-time,
-	#sgs-percent {
+	#sgs-percent,
+	#sgs-served-percent {
 		transform: scale(1.8);
 	}
 	.map-baki-svg {

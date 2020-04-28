@@ -807,6 +807,7 @@ var svgTime = document.getElementById("sgs-time"),
 	svgTimeBaku = document.getElementById("map-baki-time-svg"),
 	svgServedPercent = document.getElementById("sgs-served-percent");
 svgPercentBaku = document.getElementById("map-baki-percent-svg");
+svgServedPercentBaku = document.getElementById("map-baki-served-percent-svg");
 NS = svgTime.getAttribute("xmlns");
 
 const setTimeColors = (element, value, isBaki = false) => {
@@ -843,10 +844,62 @@ const setTimeColors = (element, value, isBaki = false) => {
 };
 
 const setPercentColor = (element, value, isBaku = false) => {
+	console.log("setPercentColor -> value", value.percent);
 	if (value.percent !== undefined) {
 		element.setAttribute("data-percent-text", value.percent);
 		let color = "green";
 		if (value.percent < 0) {
+			color = "#000";
+			element.style.pointerEvents = "none";
+			if (isBaku) {
+				if (
+					bakuPercentColor != "yellow" &&
+					bakuPercentColor != "red" &&
+					bakuPercentColor != "orange" &&
+					bakuPercentColor != "green"
+				) {
+					bakuPercentColor = "#333";
+				}
+			}
+		} else if (value.percent >= 0 && value.percent <= 65) {
+			if (isBaku) {
+				if (
+					bakuPercentColor != "orange" &&
+					bakuPercentColor != "green" &&
+					bakuPercentColor != "yellow"
+				) {
+					bakuPercentColor = "red";
+				}
+			}
+			color = "red";
+		} else if (value.percent > 65 && value.percent < 75) {
+			color = "orange";
+			if (isBaku) {
+				if (bakuPercentColor != "green" && bakuPercentColor != "yellow") {
+					bakuPercentColor = "orange";
+				}
+			}
+		} else if (value.percent >= 75 && value.percent < 85) {
+			if (isBaku) {
+				if (bakuPercentColor != "green") {
+					bakuPercentColor = "yellow";
+				}
+			}
+			color = "yellow";
+			bakuPercentColor = color;
+		} else {
+			bakuPercentColor = "green";
+			color = "green";
+		}
+		element.style.stroke = color;
+	}
+};
+
+const setServedPercentColor = (element, value, isBaku = false) => {
+	if (value.alert !== undefined) {
+		element.setAttribute("data-percent-text", value.alert);
+		let color = "green";
+		if (value.alert < 0) {
 			color = "#000";
 			element.style.pointerEvents = "none";
 			if (isBaku) {
@@ -858,21 +911,25 @@ const setPercentColor = (element, value, isBaku = false) => {
 					bakuPercentColor = "#333";
 				}
 			}
-		} else if (value.percent >= 0 && value.percent <= 65) {
+		} else if (value.alert >= 0 && value.alert <= 65) {
 			if (isBaku) {
-				if (bakuPercentColor != "orange" || bakuPercentColor != "green") {
+				if (
+					bakuPercentColor != "orange" &&
+					bakuPercentColor != "green" &&
+					bakuPercentColor != "yellow"
+				) {
 					bakuPercentColor = "red";
 				}
 			}
 			color = "red";
-		} else if (value.percent > 65 && value.percent < 75) {
+		} else if (value.alert > 65 && value.alert < 75) {
 			color = "orange";
 			if (isBaku) {
-				if (bakuPercentColor !== "red" || bakuPercentColor !== "yellow") {
+				if (bakuPercentColor != "green" && bakuPercentColor != "yellow") {
 					bakuPercentColor = "orange";
 				}
 			}
-		} else if (value.percent >= 75 && value.percent < 85) {
+		} else if (value.alert >= 75 && value.alert < 85) {
 			if (isBaku) {
 				if (bakuPercentColor != "green") {
 					bakuPercentColor = "yellow";
@@ -956,9 +1013,23 @@ const setSirclesServedPercent = (key, value) => {
 	circlePercent.setAttributeNS(null, "cx", value.filialX);
 	circlePercent.setAttributeNS(null, "cy", value.filialY);
 	circlePercent.setAttributeNS(null, "r", 3);
-	setPercentColor(circlePercent, value);
+	setServedPercentColor(circlePercent, value);
 	circlePercent.classList.add("circle");
 	svgServedPercent.appendChild(circlePercent);
+};
+
+const setSirclesServedPercentBaku = (key, value) => {
+	var circlePercent = document.createElementNS(NS, "circle");
+	circlePercent.setAttribute("data-filialname", value.filialName);
+	circlePercent.setAttribute("id", "percent-" + key);
+	circlePercent.setAttribute("data-id", key);
+	circlePercent.setAttribute("data-type", "percent");
+	circlePercent.setAttributeNS(null, "cx", value.filialX);
+	circlePercent.setAttributeNS(null, "cy", value.filialY);
+	circlePercent.setAttributeNS(null, "r", 3);
+	setServedPercentColor(circlePercent, value);
+	circlePercent.classList.add("circle");
+	svgServedPercentBaku.appendChild(circlePercent);
 };
 
 const setBakiTooltipDataTime = (data) => {
@@ -983,6 +1054,17 @@ const setBakiTooltipDataPercent = (data) => {
 	branch = arr[0].name;
 	value = arr[0].percent;
 	const BAKI = document.getElementsByClassName("baki")[1];
+	BAKI.setAttribute("data-filialname", branch);
+	BAKI.setAttribute("data-percent-text", value);
+};
+
+const setBakiTooltipDataServedPercent = (data) => {
+	let branch = "",
+		value = "";
+	const arr = Object.values(data).sort((a, b) => b.alert - a.alert);
+	branch = arr[0].name;
+	value = arr[0].alert;
+	const BAKI = document.getElementsByClassName("baki")[2];
 	BAKI.setAttribute("data-filialname", branch);
 	BAKI.setAttribute("data-percent-text", value);
 };
@@ -1064,6 +1146,21 @@ const drowBranchesPercentBaku = (branches) => {
 				}
 			} else {
 				setSirclesPercentBaku(key, value);
+			}
+		}
+	}
+	document.getElementById("sgs-percent").classList.remove("sgs-animation");
+};
+
+const drowBranchesServedPercentBaku = (branches) => {
+	for (let [key, value] of Object.entries(branches)) {
+		if (value.filialY !== undefined && value.filialX !== undefined) {
+			if (inputLength > 2) {
+				if (regValue.test(value.name)) {
+					setSirclesServedPercentBaku(key, value);
+				}
+			} else {
+				setSirclesServedPercentBaku(key, value);
 			}
 		}
 	}
@@ -1195,7 +1292,34 @@ const getAllData = () => {
 				setTimeout(getAllData, INTERVAL);
 			});
 	} else {
-		debugger;
+		getServedPercent()
+			.then((resp) => {
+				Object.keys(resp).forEach((item) => {
+					if (!!ALL_FILIALS[resp[item].id]) {
+						responseAllFilials[resp[item].id] = {
+							...resp[item],
+							...ALL_FILIALS[resp[item].id],
+						};
+					}
+					if (!!BAKU_FILIALS[resp[item].id]) {
+						responseBakuFiliasl[resp[item].id] = {
+							...resp[item],
+							...BAKU_FILIALS[resp[item].id],
+						};
+					}
+				});
+			})
+			.then(() => {
+				deleteBranches();
+				drowBranchesServedPercent(responseAllFilials);
+				setBakiTooltipDataServedPercent(responseBakuFiliasl);
+				bakuPercentColor = "#CBE0BA";
+				drowBranchesServedPercentBaku(responseBakuFiliasl);
+				document.getElementsByClassName(
+					"baki-served-percent",
+				)[0].style.fill = bakuPercentColor;
+				setTimeout(getAllData, INTERVAL);
+			});
 	}
 };
 
@@ -1240,9 +1364,12 @@ function setActionsForListItem() {
 			if (whichShown === "time") {
 				drowBranchesTime(responseAllFilials);
 				drowBranchesTimeBaku(responseBakuFiliasl);
-			} else {
+			} else if (whichShown == "percent") {
 				drowBranchesPercent(responseAllFilials);
 				drowBranchesPercentBaku(responseBakuFiliasl);
+			} else {
+				drowBranchesServedPercent(responseAllFilials);
+				drowBranchesServedPercentBaku(responseBakuFiliasl);
 			}
 		};
 	});
@@ -1350,9 +1477,12 @@ $(function () {
 		if (whichShown === "time") {
 			drowBranchesTime(responseAllFilials);
 			drowBranchesTimeBaku(responseBakuFiliasl);
-		} else {
+		} else if (whichShown == "percent") {
 			drowBranchesPercent(responseAllFilials);
 			drowBranchesPercentBaku(responseBakuFiliasl);
+		} else {
+			drowBranchesServedPercent(responseAllFilials);
+			drowBranchesServedPercentBaku(responseBakuFiliasl);
 		}
 	});
 	$("#search").on("input", function (e) {
@@ -1369,9 +1499,12 @@ $(function () {
 			if (whichShown === "time") {
 				drowBranchesTime(responseAllFilials);
 				drowBranchesTimeBaku(responseBakuFiliasl);
-			} else {
+			} else if (whichShown == "percent") {
 				drowBranchesPercent(responseAllFilials);
 				drowBranchesPercentBaku(responseBakuFiliasl);
+			} else {
+				drowBranchesServedPercent(responseAllFilials);
+				drowBranchesServedPercentBaku(responseBakuFiliasl);
 			}
 		}
 	});
