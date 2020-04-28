@@ -728,8 +728,6 @@ const getServedPercent = async () => {
 	return data;
 };
 
-getServedPercent().then((response) => console.log(response));
-
 /**
  * @card data
  */
@@ -1121,17 +1119,25 @@ const drowBranchesTimeBaku = (branches) => {
 };
 
 const drowBranchesPercent = (branches) => {
-	for (let [key, value] of Object.entries(branches)) {
-		if (value.filialY !== undefined && value.filialX !== undefined) {
-			if (inputLength > 2) {
+	if (inputLength > 2) {
+		for (let [key, value] of Object.entries(branches)) {
+			if (value.filialY !== undefined && value.filialX !== undefined) {
 				if (regValue.test(value.name)) {
 					setCirclesPercent(key, value);
 				}
-			} else {
-				setCirclesPercent(key, value);
+			}
+		}
+	} else {
+		for (let item in branches) {
+			if (
+				branches[item].filialY !== undefined &&
+				branches[item].filialX !== undefined
+			) {
+				setCirclesPercent(item, branches[item]);
 			}
 		}
 	}
+
 	document.getElementById("sgs-percent").classList.remove("sgs-animation");
 };
 
@@ -1230,7 +1236,6 @@ const getAllData = () => {
 		document.getElementById("served-custom").innerText = resp.servedCustomers;
 	});
 	getMapAlertData().then((resp) => {
-		console.log("getAllData -> resp alert", resp);
 		document.getElementById("served-percent-zoom").innerText = resp.alert;
 		document.getElementById("served-percent").innerText = resp.alert;
 	});
@@ -1375,10 +1380,6 @@ function setActionsForListItem() {
 		branchesLists[item].onclick = function (e) {
 			COUNTER_INPUT.value = "";
 			DEPARTMENT_INPUT.value = "";
-			console.log(
-				"branchesLists[item].onclick -> e.event.target",
-				e.event.target,
-			);
 		};
 	});
 	Object.keys(listForAction).forEach((item) => {

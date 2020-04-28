@@ -48,7 +48,6 @@ $(function () {
 	const opspanelBtn = $("#opspanel-btn");
 
 	$("body").on("mousemove", "#sgs-time", function (e) {
-		console.log("isClicked", isClicked);
 		if (isClicked) {
 			return;
 		}
@@ -228,7 +227,6 @@ $(function () {
 	}
 
 	const setPercentTooltipColor = (percent) => {
-		console.log("setPercentTooltipColor -> percent", percent);
 		if (percent < 0) {
 			TOOLTIP.css("background", "#000");
 			TOOLTIP.css("color", "#fff");
@@ -300,7 +298,6 @@ $(function () {
 		element = e.target;
 		let circleType = event.getAttribute("data-type");
 		let color = $(this).css("fill");
-		console.log("color", color);
 		TOOLTIP.css("background", color);
 		if (whichShown === "time") {
 			const data = event.getAttribute("data-awg-text");
